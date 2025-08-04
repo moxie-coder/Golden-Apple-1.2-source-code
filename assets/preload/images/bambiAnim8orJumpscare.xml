@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bambiAnim8orJumpscare.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="JUMPSCARE0000" x="10" y="10" width="1000" height="1000"/>
+	<SubTexture name="JUMPSCARE0001" x="10" y="1020" width="1000" height="1000"/>
+	<SubTexture name="JUMPSCARE0002" x="10" y="2030" width="1000" height="1000"/>
+	<SubTexture name="JUMPSCARE0003" x="10" y="3040" width="1000" height="1000"/>
+	<SubTexture name="JUMPSCARE0004" x="1020" y="10" width="1000" height="1000"/>
+	<SubTexture name="JUMPSCARE0005" x="1020" y="1020" width="1000" height="1000"/>
+</TextureAtlas>

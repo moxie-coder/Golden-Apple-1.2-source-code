@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="disruption.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="disruption basic0000" x="10" y="467" width="581" height="114"/>
+	<SubTexture name="disruption basic0001" x="10" y="467" width="581" height="114"/>
+	<SubTexture name="disruption basic0002" x="10" y="467" width="581" height="114"/>
+	<SubTexture name="disruption basic0003" x="10" y="591" width="581" height="114"/>
+	<SubTexture name="disruption basic0004" x="10" y="591" width="581" height="114"/>
+	<SubTexture name="disruption basic0005" x="10" y="591" width="581" height="114"/>
+	<SubTexture name="disruption basic0006" x="10" y="715" width="581" height="114"/>
+	<SubTexture name="disruption basic0007" x="10" y="715" width="581" height="114"/>
+	<SubTexture name="disruption basic0008" x="10" y="715" width="581" height="114"/>
+	<SubTexture name="disruption white0000" x="10" y="317" width="711" height="140" frameX="0" frameY="-1" frameWidth="713" frameHeight="145"/>
+	<SubTexture name="disruption white0001" x="10" y="165" width="712" height="142" frameX="0" frameY="-1" frameWidth="713" frameHeight="145"/>
+	<SubTexture name="disruption white0002" x="10" y="10" width="713" height="145"/>
+</TextureAtlas>

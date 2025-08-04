@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="zunkity.png">
+	<!-- Created with Adobe Animate version 19.0.0.326 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="FAKE LOADING SCREEN0000" x="0" y="0" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0001" x="853" y="0" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0002" x="1706" y="0" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0003" x="2559" y="0" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0004" x="0" y="1069" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0005" x="853" y="1069" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0006" x="1706" y="1069" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0007" x="2559" y="1069" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0008" x="0" y="2138" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0009" x="853" y="2138" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0010" x="1706" y="2138" width="848" height="1064"/>
+	<SubTexture name="FAKE LOADING SCREEN0011" x="2559" y="2138" width="848" height="1064"/>
+</TextureAtlas>

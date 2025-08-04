@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gary_splode.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="SPLODE0000" x="10" y="10" width="713" height="572" pivotX="0" pivotY="0"/>
+	<SubTexture name="SPLODE0001" x="10" y="10" width="713" height="572"/>
+	<SubTexture name="SPLODE0002" x="10" y="592" width="713" height="572"/>
+	<SubTexture name="SPLODE0003" x="10" y="592" width="713" height="572"/>
+	<SubTexture name="SPLODE0004" x="10" y="1174" width="713" height="572"/>
+	<SubTexture name="SPLODE0005" x="10" y="1174" width="713" height="572"/>
+	<SubTexture name="SPLODE0006" x="10" y="1756" width="713" height="572"/>
+	<SubTexture name="SPLODE0007" x="10" y="1756" width="713" height="572"/>
+	<SubTexture name="SPLODE0008" x="10" y="2338" width="713" height="572"/>
+	<SubTexture name="SPLODE0009" x="10" y="2338" width="713" height="572"/>
+	<SubTexture name="SPLODE0010" x="10" y="2920" width="713" height="572"/>
+	<SubTexture name="SPLODE0011" x="10" y="2920" width="713" height="572"/>
+	<SubTexture name="SPLODE0012" x="10" y="3502" width="713" height="572"/>
+	<SubTexture name="SPLODE0013" x="10" y="3502" width="713" height="572"/>
+	<SubTexture name="SPLODE0014" x="733" y="10" width="713" height="572"/>
+	<SubTexture name="SPLODE0015" x="733" y="10" width="713" height="572"/>
+	<SubTexture name="SPLODE0016" x="733" y="592" width="713" height="572"/>
+	<SubTexture name="SPLODE0017" x="733" y="592" width="713" height="572"/>
+	<SubTexture name="SPLODE0018" x="733" y="1174" width="713" height="572"/>
+	<SubTexture name="SPLODE0019" x="733" y="1174" width="713" height="572"/>
+	<SubTexture name="SPLODE0020" x="733" y="1756" width="713" height="572"/>
+	<SubTexture name="SPLODE0021" x="733" y="1756" width="713" height="572"/>
+	<SubTexture name="SPLODE0022" x="10" y="10" width="0" height="0" frameX="0" frameY="0" frameWidth="713" frameHeight="572"/>
+	<SubTexture name="SPLODE0023" x="10" y="10" width="0" height="0" frameX="0" frameY="0" frameWidth="713" frameHeight="572"/>
+</TextureAtlas>
