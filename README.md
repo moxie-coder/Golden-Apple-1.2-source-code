@@ -2,10 +2,10 @@
 ## Powered by a heavily modified version of Kade Engine!
 ![KadeEngineLogo](https://user-images.githubusercontent.com/26305836/110529589-4b4eb600-80ce-11eb-9c44-e899118b0bf0.png)
 
-## Dave
-this is dave
-![Dave](https://cdn.discordapp.com/attachments/826922537668968478/884915478592643102/this_is_dave.png)
+## DISCLAIMER
+I do not own the code, all rights go to Sky/Grantare! and the rest of the Golden Apple team!
 
-say hi to dave
+I will solely take this down at Sky and the teams discretion. Any content from the 2.0 build will also be substantually removed too in compliance with the teams wills.
 
-please say hi to him
+yes this is real lol
+![IMG_3223](https://github.com/user-attachments/assets/c4e1c3fb-68c1-4f2a-8d47-83e83d989d04)
