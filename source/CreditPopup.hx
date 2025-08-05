@@ -55,9 +55,6 @@ class CreditPopup extends FlxSpriteGroup
 			case 'slices':
 				funnyText.text = 'Song by Top 10 Awesome';
 				bitchyBalls.scale.set(1.5, 1);
-			case 'penis':
-				funnyText.text = "Lovely Stories Told by Our Beloved Penis Elf!";
-				bitchyBalls.scale.set(3, 1);
 			case 'strawberry':
 				funnyText.text = 'Song by Cynda and Grantare';
 				bitchyBalls.scale.set(2.25, 1);
@@ -70,8 +67,6 @@ class CreditPopup extends FlxSpriteGroup
 				funnyText.text = 'Song by Cval';
 			case 'too-shiny' | 'kirbathon':
 				funnyText.text = 'Song by Gorbini';
-			case 'cycles':
-				funnyText.text = 'Song by Vania';
 			case 'left-unchecked':
 				funnyText.text = 'Song by Adam McHummus';
 				bitchyBalls.scale.set(1.25, 1);

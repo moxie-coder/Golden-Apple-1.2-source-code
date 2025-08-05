@@ -2,7 +2,6 @@ package;
 
 import flixel.addons.display.FlxBackdrop;
 import BlendModeEffect.BlendModeShader;
-import haxe.macro.Expr.Case;
 import flixel.tweens.misc.ColorTween;
 import flixel.math.FlxRandom;
 import openfl.net.FileFilter;
@@ -250,7 +249,6 @@ class PlayState extends MusicBeatState
 
 	private var daveExpressionSplitathon:Character;
 
-	// dad.curCharacter == 'bambi-unfair' || dad.curCharacter == 'bambi-3d' || dad.curCharacter == 'bambi-piss-3d'
 	public static var shakingChars:Array<String> = [
 		'bambi-unfair',
 		'bambi-3d',
@@ -261,7 +259,6 @@ class PlayState extends MusicBeatState
 		'robot-guy',
 		'batai',
 		'boxer',
-		'ripple',
 		'among'
 	];
 
@@ -781,10 +778,6 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 300;
 
 				boyfriend.offsetScale = 1.25;
-			case 'jeez':
-				boyfriend.setPosition(1292, 100);
-				gf.setPosition(391, 183);
-				dad.setPosition(-206, 97);
 		}
 
 		if (curStage == 'thebest')
@@ -1239,9 +1232,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.screenCenter(X);
 		add(scoreTxt);
 
-		if (SONG.song.toLowerCase() == 'penis')
-			iconP2.changeIcon('penis');
-
 		if (SONG.song.toLowerCase() == 'deformation')
 		{
 			dad.alpha = 0;
@@ -1313,11 +1303,6 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'the-big-dingle')
 			add(talk);
 
-		// if (SONG.song == 'South')
-		// FlxG.camera.alpha = 0.7;
-		// UI_camera.zoom = 1;
-
-		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
 		if (isStoryMode || FlxG.save.data.freeplayCuts)
@@ -1376,10 +1361,7 @@ class PlayState extends MusicBeatState
 
 	function reloadTrixBg(char:Int)
 	{
-		if (char == 3)
-		{
-		}
-		else
+        if (char != 3)
 		{
 			var prefix:String = 'alge';
 			switch (char)
@@ -1418,13 +1400,6 @@ class PlayState extends MusicBeatState
 				var bg = new FlxSprite().makeGraphic(1280 * 2, 720 * 2);
 				bg.screenCenter();
 				bg.scrollFactor.set(0, 0);
-				add(bg);
-			case 'enforcers':
-				curStage = 'enforce';
-				defaultCamZoom = 0.85;
-				var bg = new FlxSprite(-200, -200).loadGraphic(Paths.image('enforcers/enforcersbg'));
-				bg.scale.set(1.5, 1.5);
-				bg.updateHitbox();
 				add(bg);
 			case 'the-big-dingle':
 				defaultCamZoom = 1.225;
@@ -1738,15 +1713,6 @@ class PlayState extends MusicBeatState
 					gasw2.push(FlxG.random.int(800, 1200));
 					what.add(pizza);
 				}
-			case 'penis':
-				curStage = 'thebest';
-				defaultCamZoom = 0.85;
-
-				var bg = new FlxSprite(-345, -185).loadGraphic(Paths.image('THE BEST EVER/IMG_1458'));
-				bg.setGraphicSize(2221);
-				bg.updateHitbox();
-
-				add(bg);
 			case 'bookworm':
 				curStage = 'library';
 				defaultCamZoom = 0.875;
@@ -2167,11 +2133,6 @@ class PlayState extends MusicBeatState
 				bg.scale.set(4.5, 4.5);
 				bg.antialiasing = false;
 				add(bg);
-			case 'cycles':
-				curStage = 'cycles';
-				defaultCamZoom = 1.05;
-
-				add(new FlxSprite(-130, -94).loadGraphic(Paths.image('bambi/yesThatIsATransFlag')));
 			case 'thunderstorm':
 				curStage = 'out';
 				defaultCamZoom = 0.8;
@@ -2374,10 +2335,6 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'disruption')
 		{
 			startSpeed = 0.5; // WHATN THE JUNK!!!
-		}
-		if (SONG.song.toLowerCase() == 'ripple')
-		{
-			startSpeed = 2; // WHATN THE JUNK!!!
 		}
 
 		talking = false;
@@ -3867,11 +3824,6 @@ class PlayState extends MusicBeatState
 			{
 				switch (SONG.song.toLowerCase())
 				{
-					case 'penis':
-						#if desktop
-						DiscordClient.changePresence("Get back here. You aren't done.", null, null, true);
-						#end
-						FlxG.switchState(new GetBackState());
 					default:
 						CoolUtil.cheatersNeverProsper();
 				}
@@ -3917,9 +3869,6 @@ class PlayState extends MusicBeatState
 				}
 			#if !debug} #end
 		}
-
-		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
-		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
 		iconP1.centerOffsets();
 		iconP2.centerOffsets();
@@ -3969,32 +3918,24 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (PlayState.SONG.song.toLowerCase() == 'penis')
-		{
-			if (FlxG.keys.justPressed.EIGHT || FlxG.keys.justPressed.SIX || FlxG.keys.justPressed.ZERO)
-				FlxG.switchState(new GetBackState());
-		}
-		else
-		{
-			if (FlxG.keys.justPressed.EIGHT)
-			{
-				PlayState.characteroverride = 'none';
-				PlayState.formoverride = 'none';
-				FlxG.switchState(new AnimationDebug(dad.curCharacter));
-			}
-			if (FlxG.keys.justPressed.SIX)
-			{
-				PlayState.characteroverride = 'none';
-				PlayState.formoverride = 'none';
-				FlxG.switchState(new AnimationDebug(boyfriend.curCharacter));
-			}
-			if (FlxG.keys.justPressed.ZERO)
-			{
-				PlayState.characteroverride = 'none';
-				PlayState.formoverride = 'none';
-				FlxG.switchState(new AnimationDebug(gf.curCharacter));
-			}
-		}
+        if (FlxG.keys.justPressed.EIGHT)
+        {
+            PlayState.characteroverride = 'none';
+            PlayState.formoverride = 'none';
+            FlxG.switchState(new AnimationDebug(dad.curCharacter));
+        }
+        if (FlxG.keys.justPressed.SIX)
+        {
+            PlayState.characteroverride = 'none';
+            PlayState.formoverride = 'none';
+            FlxG.switchState(new AnimationDebug(boyfriend.curCharacter));
+        }
+        if (FlxG.keys.justPressed.ZERO)
+        {
+            PlayState.characteroverride = 'none';
+            PlayState.formoverride = 'none';
+            FlxG.switchState(new AnimationDebug(gf.curCharacter));
+        }
 
 		if (startingSong)
 		{

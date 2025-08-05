@@ -2,7 +2,6 @@ package;
 
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
@@ -227,7 +226,6 @@ class ExtraSongState extends MusicBeatState
 	{
 		if ((song.toLowerCase() == 'dave-x-bambi-shipping-cute' && !SaveFileState.saveFile.data.shipUnlocked)
 			|| (song.toLowerCase() == 'recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject)
-			|| (song.toLowerCase() == 'corrupted-file' && !SaveFileState.saveFile.data.foundCorrupt)
 			|| (song.toLowerCase() == 'ticking' && !SaveFileState.saveFile.data.foundTicking)
 			|| (song.toLowerCase() == 'cell' && !SaveFileState.saveFile.data.foundCell))
 		{

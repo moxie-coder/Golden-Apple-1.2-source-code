@@ -21,7 +21,8 @@ class PauseSubState extends MusicBeatSubstate
 
 	var menuItems:Array<String> = [
 		'Resume',
-		'Toggle Practice Mode' /*, 'Toggle Botplay'*/,
+		'Toggle Practice Mode', 
+        'Toggle Botplay', // cuz yes
 		'Restart Song',
 		'Exit to menu'
 	];
@@ -103,19 +104,6 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(practiceText, {alpha: 1, y: practiceText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(bottyText, {alpha: 1, y: bottyText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 
-		if (PlayState.SONG.song.toLowerCase() == 'wireframe' && SaveFileState.saveFile.data.elfMode)
-		{
-			var elf = new FlxSprite();
-			elf.frames = Paths.getSparrowAtlas('THE BEST EVER/untitled');
-			elf.animation.addByPrefix('idle', 'MY BALDI BASICS PLUS PRO GAMES', 24, true);
-			elf.animation.play('idle');
-			elf.setPosition(1280 - elf.width, 720 - elf.height);
-			elf.antialiasing = false;
-			elf.alpha = 0;
-			add(elf);
-			FlxTween.tween(elf, {alpha: 1}, 2.5, {startDelay: 0.5});
-		}
-
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
 		add(grpMenuShit);
 
@@ -177,21 +165,9 @@ class PauseSubState extends MusicBeatSubstate
 						practiceText.visible = PlayState.practicing;
 					}
 				case 'Toggle Botplay':
-					if (PlayState.SONG.song.toLowerCase() == 'penis')
-					{
-						if (grpMenuShit.members[2].alpha != 0)
-						{
-							FlxTween.color(grpMenuShit.members[2], 0.15, FlxColor.WHITE, FlxColor.RED);
-							FlxTween.tween(grpMenuShit.members[2], {alpha: 0}, 0.25);
-						}
-						trace("hello");
-					}
-					else
-					{
 						PlayState.fakedScore = true;
 						PlayState.bottyPlay = !PlayState.bottyPlay;
 						bottyText.visible = PlayState.bottyPlay;
-					}
 				case "Restart Song":
 					FlxG.resetState();
 				case "Exit to menu":

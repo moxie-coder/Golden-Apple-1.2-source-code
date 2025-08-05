@@ -130,11 +130,6 @@ class PlayMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			var theFuckingOption:String = optionShit[i];
-			if (theFuckingOption == 'spppoooookeeeeyyyy' && !SaveFileState.saveFile.data.elfDiscovered)
-			{
-				optionShit[i] = 'unknown';
-				theFuckingOption = 'unknown';
-			}
 			var tex = Paths.getSparrowAtlas('buttons/' + optionShit[i]);
 			var menuItem:FlxSprite = new FlxSprite(0, FlxG.height * 1.6);
 			menuItem.frames = tex;
@@ -362,21 +357,14 @@ class PlayMenuState extends MusicBeatState
 		}
 
 		var fuckingCockDickPenis:Int = FlxG.random.int(0, baldisHotCock);
-		if (SaveFileState.saveFile.data.elfMode)
-		{
-			bg.loadGraphic(Paths.image('backgrounds_elf/${fuckingCockDickPenis}'));
-		}
-		else
-		{
-			if (optionShit[curSelected] == 'ferocious' && !SaveFileState.saveFile.data.playedFerocious)
-			{
-				bg.loadGraphic(Paths.image('menu/unknown'));
-			}
-			else
-			{
-				bg.loadGraphic(Paths.image('menu/${theFuckingOption}'));
-			}
-		}
+        if (optionShit[curSelected] == 'ferocious' && !SaveFileState.saveFile.data.playedFerocious)
+        {
+            bg.loadGraphic(Paths.image('menu/unknown'));
+        }
+        else
+        {
+            bg.loadGraphic(Paths.image('menu/${theFuckingOption}'));
+        }
 		bg.setGraphicSize(1280);
 		bg.updateHitbox();
 		bg.screenCenter();

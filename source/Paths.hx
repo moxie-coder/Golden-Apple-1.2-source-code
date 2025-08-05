@@ -110,11 +110,6 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
 	}
 
-	inline static public function elf(song:String)
-	{
-		return 'songs:assets/songs/${song.toLowerCase()}/elf.$SOUND_EXT';
-	}
-
 	inline static public function externmusic(song:String)
 	{
 		return 'songs:assets/songs/extern/${song.toLowerCase()}.$SOUND_EXT';

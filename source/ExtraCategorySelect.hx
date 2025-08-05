@@ -1,6 +1,5 @@
 package;
 
-import io.newgrounds.components.GatewayComponent;
 import flixel.tweens.misc.ColorTween;
 import flixel.math.FlxRandom;
 import openfl.net.FileFilter;
@@ -43,7 +42,6 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
-import flash.system.System;
 #if desktop
 import Discord.DiscordClient;
 import lime.app.Application;

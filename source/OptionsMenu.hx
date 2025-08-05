@@ -60,29 +60,6 @@ class OptionsMenu extends MusicBeatState
 			+ "\n"
 			+ (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off"));
 
-		if (SaveFileState.saveFile.data.elfDiscovered)
-		{
-			controlsStrings = CoolUtil.coolStringFile("KEYBINDS"
-				+ "\n"
-				+ (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping")
-				+ "\n"
-				+ (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll')
-				+ "\n"
-				+ (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off')
-				+ "\n"
-				+ (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off")
-				+ "\n"
-				+ (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off")
-				+ "\n"
-				+ (FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off")
-				+ "\n"
-				+ (FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off")
-				+ "\n"
-				+ (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off")
-				+ "\n"
-				+ (SaveFileState.saveFile.data.elfMode ? "Elf Mode On" : "Elf Mode Off"));
-		}
-
 		trace(controlsStrings);
 
 		menuBG.loadGraphic(MainMenuState.randomizeBG());
@@ -202,13 +179,6 @@ class OptionsMenu extends MusicBeatState
 						(FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off"), true, false);
 					ctrl.isMenuItem = true;
 					ctrl.targetY = curSelected - 8;
-					grpControls.add(ctrl);
-				case 9:
-					SaveFileState.saveFile.data.elfMode = !SaveFileState.saveFile.data.elfMode;
-					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (SaveFileState.saveFile.data.elfMode ? "Elf Mode On" : "Elf Mode Off"), true,
-						false);
-					ctrl.isMenuItem = true;
-					ctrl.targetY = curSelected - 9;
 					grpControls.add(ctrl);
 			}
 			FlxG.save.flush();

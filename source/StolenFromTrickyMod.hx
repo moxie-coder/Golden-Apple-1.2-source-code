@@ -4,7 +4,7 @@ import haxe.xml.Access;
 #else
 import haxe.xml.Fast as Access;
 #end
-import flash.geom.Rectangle;
+import openfl.geom.Rectangle;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames.TexturePackerObject;
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
