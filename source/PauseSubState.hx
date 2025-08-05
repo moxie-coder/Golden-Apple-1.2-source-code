@@ -149,43 +149,20 @@ class PauseSubState extends MusicBeatSubstate
 				case "Resume":
 					close();
 				case 'Toggle Practice Mode':
-					if (PlayState.SONG.song.toLowerCase() == 'penis')
-					{
-						if (grpMenuShit.members[1].alpha != 0)
-						{
-							FlxTween.color(grpMenuShit.members[1], 0.15, FlxColor.WHITE, FlxColor.RED);
-							FlxTween.tween(grpMenuShit.members[1], {alpha: 0}, 0.25);
-						}
-						trace("hello");
-					}
-					else
-					{
-						PlayState.fakedScore = true;
-						PlayState.practicing = !PlayState.practicing;
-						practiceText.visible = PlayState.practicing;
-					}
+                    PlayState.fakedScore = true;
+                    PlayState.practicing = !PlayState.practicing;
+                    practiceText.visible = PlayState.practicing;
 				case 'Toggle Botplay':
-						PlayState.fakedScore = true;
-						PlayState.bottyPlay = !PlayState.bottyPlay;
-						bottyText.visible = PlayState.bottyPlay;
+                    PlayState.fakedScore = true;
+                    PlayState.bottyPlay = !PlayState.bottyPlay;
+                    bottyText.visible = PlayState.bottyPlay;
 				case "Restart Song":
 					FlxG.resetState();
 				case "Exit to menu":
-					if (PlayState.SONG.song.toLowerCase() == 'penis')
-						FlxG.switchState(new GetBackState());
-					else
-					{
-						PlayState.characteroverride = 'none';
-						PlayState.formoverride = 'none';
-						FlxG.switchState(new MainMenuState());
-					}
+                    PlayState.characteroverride = 'none';
+                    PlayState.formoverride = 'none';
+                    FlxG.switchState(new MainMenuState());
 			}
-		}
-
-		if (FlxG.keys.justPressed.J)
-		{
-			// for reference later!
-			// PlayerSettings.player1.controls.replaceBinding(Control.LEFT, Keys, FlxKey.J, null);
 		}
 	}
 
