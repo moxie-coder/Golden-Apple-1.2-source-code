@@ -71,11 +71,11 @@ class AnimationDebug extends MusicBeatState
 			bf.flipX = false;
 		}
 		/*
-		var poip =  new Character(dad.x, dad.y, 'garrett-animal');
-		add(poip);
-		remove(dad);
-		add(dad);
-		*/
+			var poip =  new Character(dad.x, dad.y, 'garrett-animal');
+			add(poip);
+			remove(dad);
+			add(dad);
+		 */
 
 		dumbTexts = new FlxTypedGroup<FlxText>();
 		add(dumbTexts);
@@ -129,12 +129,12 @@ class AnimationDebug extends MusicBeatState
 
 		textAnim.text = char.animation.curAnim.name;
 
-		if(FlxG.keys.justPressed.ESCAPE)
+		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if(FlxG.keys.justPressed.F)
+		if (FlxG.keys.justPressed.F)
 		{
 			char.flipX = !char.flipX;
 		}

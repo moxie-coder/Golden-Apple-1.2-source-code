@@ -30,7 +30,7 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);
 		animation.addByPrefix('dave', 'Dave Idle BLACK LINE', 24);
 		animation.addByPrefix('empty', 'empty', 24);
-		
+
 		animation.play(character);
 		updateHitbox();
 	}

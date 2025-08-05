@@ -12,8 +12,7 @@ class HealthIcon extends FlxSprite
 
 	public var isPlayer:Bool = false;
 
-	
-	//LIST ICON NAME HERE NOT CHARACTER
+	// LIST ICON NAME HERE NOT CHARACTER
 	public var noAaChars:Array<String> = [
 		'unfair',
 		'disrupt',
@@ -54,7 +53,6 @@ class HealthIcon extends FlxSprite
 		'future',
 		'smartass',
 		'doll',
-		'rippler',
 		'testicles',
 		'gunk',
 		'gross',
@@ -114,15 +112,21 @@ class HealthIcon extends FlxSprite
 	function addIcon(char:String, startFrame:Int, singleIcon:Bool = false, flipOpposite:Bool = false)
 	{
 		var flip:Bool = isPlayer;
-		if(flipOpposite){flip = !flip;};
+		if (flipOpposite)
+		{
+			flip = !flip;
+		};
 		animation.add(char, !singleIcon ? [startFrame, startFrame + 1] : [startFrame], 0, false, flip);
 	}
 
 	function addAwesomeIcon(char:String, startFrame:Int, singleIcon:Bool = false, flipOpposite:Bool = false)
 	{
 		var flip:Bool = isPlayer;
-		if(flipOpposite){flip = !flip;};
-		if(char == 'awesomePlayer')
+		if (flipOpposite)
+		{
+			flip = !flip;
+		};
+		if (char == 'awesomePlayer')
 		{
 			animation.add(char, [5, 1, 3], 0, false, !isPlayer);
 		}
@@ -136,16 +140,17 @@ class HealthIcon extends FlxSprite
 	{
 		charPublic = char;
 
-		if(char == 'awesomePlayer' || char == 'awesomeEnemy')
+		if (char == 'awesomePlayer' || char == 'awesomeEnemy')
 		{
 			loadGraphic(Paths.image('icons/top-ten-awesome'), true, 150, 150);
 			addAwesomeIcon(char, 0, false, false);
 		}
-		else if(char != 'bandu-origin' && char != 'ohungi' && char != 'dave-unchecked')
+		else if (char != 'bandu-origin' && char != 'ohungi' && char != 'dave-unchecked')
 		{
 			loadGraphic(Paths.image('icons/' + char), true, 150, 150);
 
-			if(char == 'dale' || char == 'dingle' || char == 'froing' || char == 'testicles' || char == 'epic' || char == 'lullabandu' || char == 'do-you-accept-player')
+			if (char == 'dale' || char == 'dingle' || char == 'froing' || char == 'testicles' || char == 'epic' || char == 'lullabandu'
+				|| char == 'do-you-accept-player')
 			{
 				addIcon(char, 0, false, true);
 			}
@@ -154,7 +159,7 @@ class HealthIcon extends FlxSprite
 				addIcon(char, 0);
 			}
 		}
-		else if(char == 'bandu-origin')
+		else if (char == 'bandu-origin')
 		{
 			frames = Paths.getSparrowAtlas('icons/bandu_origin_icon');
 			animation.addByPrefix(char, char, 24, false, isPlayer, false);
@@ -167,7 +172,7 @@ class HealthIcon extends FlxSprite
 
 		antialiasing = !noAaChars.contains(char);
 
-		if(char == 'ohungi')
+		if (char == 'ohungi')
 		{
 			animation.play('good');
 		}
@@ -187,6 +192,6 @@ class HealthIcon extends FlxSprite
 		if (sprTracker != null)
 			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
 
-		offset.set(Std.int(FlxMath.bound(width - (150 * scale.x),0)) + xOffsetPenis,Std.int(FlxMath.bound(height - (150 * scale.y),0)) + yOffsetPenis);
+		offset.set(Std.int(FlxMath.bound(width - (150 * scale.x), 0)) + xOffsetPenis, Std.int(FlxMath.bound(height - (150 * scale.y), 0)) + yOffsetPenis);
 	}
 }

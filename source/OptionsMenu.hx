@@ -27,6 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 	var versionShit:FlxText;
+
 	override function create()
 	{
 		if (!FlxG.sound.music.playing)
@@ -41,22 +42,47 @@ class OptionsMenu extends MusicBeatState
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SUSSUS AMOGUS'));
 
 		// wtf cynda
-		controlsStrings = CoolUtil.coolStringFile('KEYBINDS' + "\n" + (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\n" + (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off') + "\n" + (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off") 
-		+ "\n" + (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off")
-		+ "\n" + (FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off")
-		+ "\n" + (FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off")
-		+ "\n" + (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off"));
+		controlsStrings = CoolUtil.coolStringFile('KEYBINDS'
+			+ "\n"
+			+ (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping")
+			+ "\n"
+			+ (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll')
+			+ "\n"
+			+ (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off')
+			+ "\n"
+			+ (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off")
+			+ "\n"
+			+ (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off")
+			+ "\n"
+			+ (FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off")
+			+ "\n"
+			+ (FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off")
+			+ "\n"
+			+ (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off"));
 
-		if(SaveFileState.saveFile.data.elfDiscovered)
+		if (SaveFileState.saveFile.data.elfDiscovered)
 		{
-			controlsStrings = CoolUtil.coolStringFile("KEYBINDS" + "\n" + (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\n" + (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off') + "\n" + (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off") 
-			+ "\n" + (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off")
-			+ "\n" + (FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off")
-			+ "\n" + (FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off")
-			+ "\n" + (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off")
-			+ "\n" + (SaveFileState.saveFile.data.elfMode ? "Elf Mode On" : "Elf Mode Off"));
+			controlsStrings = CoolUtil.coolStringFile("KEYBINDS"
+				+ "\n"
+				+ (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping")
+				+ "\n"
+				+ (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll')
+				+ "\n"
+				+ (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off')
+				+ "\n"
+				+ (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off")
+				+ "\n"
+				+ (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off")
+				+ "\n"
+				+ (FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off")
+				+ "\n"
+				+ (FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off")
+				+ "\n"
+				+ (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off")
+				+ "\n"
+				+ (SaveFileState.saveFile.data.elfMode ? "Elf Mode On" : "Elf Mode Off"));
 		}
-		
+
 		trace(controlsStrings);
 
 		menuBG.loadGraphic(MainMenuState.randomizeBG());
@@ -70,14 +96,13 @@ class OptionsMenu extends MusicBeatState
 
 		for (i in 0...controlsStrings.length)
 		{
-				var controlLabel:Alphabet = new Alphabet(0, (70 * i) + 30, controlsStrings[i], true, false);
-				controlLabel.isMenuItem = true;
-				//controlLabel.moveWithScale = true;
-				controlLabel.targetY = i;
-				grpControls.add(controlLabel);
+			var controlLabel:Alphabet = new Alphabet(0, (70 * i) + 30, controlsStrings[i], true, false);
+			controlLabel.isMenuItem = true;
+			// controlLabel.moveWithScale = true;
+			controlLabel.targetY = i;
+			grpControls.add(controlLabel);
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
-
 
 		versionShit = new FlxText(5, FlxG.height - 18, 0, "Offset (Left, Right): " + FlxG.save.data.offset, 12);
 		versionShit.scrollFactor.set();
@@ -93,97 +118,101 @@ class OptionsMenu extends MusicBeatState
 
 		super.update(elapsed);
 
-			if (controls.BACK)
-				FlxG.switchState(new MainMenuState());
-			if (controls.UP_P)
-				changeSelection(-1);
-			if (controls.DOWN_P)
-				changeSelection(1);
-			
-			if (controls.RIGHT_P)
-			{
-				FlxG.save.data.offset++;
-				versionShit.text = "Offset (Left, Right): " + FlxG.save.data.offset;
-			}
+		if (controls.BACK)
+			FlxG.switchState(new MainMenuState());
+		if (controls.UP_P)
+			changeSelection(-1);
+		if (controls.DOWN_P)
+			changeSelection(1);
 
-			if (controls.LEFT_P)
-			{
-				FlxG.save.data.offset--;
-				versionShit.text = "Offset (Left, Right): " + FlxG.save.data.offset;
-			}
-	
+		if (controls.RIGHT_P)
+		{
+			FlxG.save.data.offset++;
+			versionShit.text = "Offset (Left, Right): " + FlxG.save.data.offset;
+		}
 
-			if (controls.ACCEPT)
+		if (controls.LEFT_P)
+		{
+			FlxG.save.data.offset--;
+			versionShit.text = "Offset (Left, Right): " + FlxG.save.data.offset;
+		}
+
+		if (controls.ACCEPT)
+		{
+			grpControls.remove(grpControls.members[curSelected]);
+			switch (curSelected)
 			{
-				grpControls.remove(grpControls.members[curSelected]);
-				switch(curSelected)
-				{
-					case 0:
-						FlxG.switchState(new KeyBindState());
-						
-					case 1:
-						FlxG.save.data.newInput = !FlxG.save.data.newInput;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 1;
-						grpControls.add(ctrl);
-					case 2:
-						FlxG.save.data.downscroll = !FlxG.save.data.downscroll;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll'), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 2;
-						grpControls.add(ctrl);
-					case 3:
-						FlxG.save.data.eyesores = !FlxG.save.data.eyesores;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off'), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 3;
-						grpControls.add(ctrl);
-					case 4:
-						FlxG.save.data.donoteclick = !FlxG.save.data.donoteclick;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 4;
-						grpControls.add(ctrl);
-					case 5:
-						FlxG.save.data.freeplayCuts = !FlxG.save.data.freeplayCuts;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 5;
-						grpControls.add(ctrl);
-					case 6:
-						if (FlxG.save.data.preloadAtStartup)
-							FlxG.save.data.preloadAtStartup = false;
-						else if (FlxG.save.data.preloadAtAll)
-							FlxG.save.data.preloadAtAll = false;
-						else
-							FlxG.save.data.preloadAtAll = FlxG.save.data.preloadAtStartup = true;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 6;
-						grpControls.add(ctrl);
-					case 7:
-						FlxG.save.data.counterVis = !FlxG.save.data.counterVis;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 7;
-						grpControls.add(ctrl);
-						Main.toggleCounterVisible(FlxG.save.data.counterVis);
-					case 8:
-						FlxG.save.data.sensitiveContent = !FlxG.save.data.sensitiveContent;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 8;
-						grpControls.add(ctrl);
-					case 9:
-						SaveFileState.saveFile.data.elfMode = !SaveFileState.saveFile.data.elfMode;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (SaveFileState.saveFile.data.elfMode ? "Elf Mode On" : "Elf Mode Off"), true, false);
-						ctrl.isMenuItem = true;
-						ctrl.targetY = curSelected - 9;
-						grpControls.add(ctrl);
-				}
-				FlxG.save.flush();
+				case 0:
+					FlxG.switchState(new KeyBindState());
+
+				case 1:
+					FlxG.save.data.newInput = !FlxG.save.data.newInput;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping"), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 1;
+					grpControls.add(ctrl);
+				case 2:
+					FlxG.save.data.downscroll = !FlxG.save.data.downscroll;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll'), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 2;
+					grpControls.add(ctrl);
+				case 3:
+					FlxG.save.data.eyesores = !FlxG.save.data.eyesores;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off'), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 3;
+					grpControls.add(ctrl);
+				case 4:
+					FlxG.save.data.donoteclick = !FlxG.save.data.donoteclick;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off"), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 4;
+					grpControls.add(ctrl);
+				case 5:
+					FlxG.save.data.freeplayCuts = !FlxG.save.data.freeplayCuts;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.freeplayCuts ? "Cutscenes On" : "Cutscenes Off"), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 5;
+					grpControls.add(ctrl);
+				case 6:
+					if (FlxG.save.data.preloadAtStartup)
+						FlxG.save.data.preloadAtStartup = false;
+					else if (FlxG.save.data.preloadAtAll)
+						FlxG.save.data.preloadAtAll = false;
+					else
+						FlxG.save.data.preloadAtAll = FlxG.save.data.preloadAtStartup = true;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30,
+						(FlxG.save.data.preloadAtAll ? (FlxG.save.data.preloadAtStartup ? "Preload at Startup" : "Preload Before Levels") : "Preloading Off"),
+						true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 6;
+					grpControls.add(ctrl);
+				case 7:
+					FlxG.save.data.counterVis = !FlxG.save.data.counterVis;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30,
+						(FlxG.save.data.counterVis ? "FPS and Memory Counter On" : "FPS and Memory Counter Off"), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 7;
+					grpControls.add(ctrl);
+					Main.toggleCounterVisible(FlxG.save.data.counterVis);
+				case 8:
+					FlxG.save.data.sensitiveContent = !FlxG.save.data.sensitiveContent;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30,
+						(FlxG.save.data.sensitiveContent ? "Sensitive Content On" : "Sensitive Content Off"), true, false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 8;
+					grpControls.add(ctrl);
+				case 9:
+					SaveFileState.saveFile.data.elfMode = !SaveFileState.saveFile.data.elfMode;
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (SaveFileState.saveFile.data.elfMode ? "Elf Mode On" : "Elf Mode Off"), true,
+						false);
+					ctrl.isMenuItem = true;
+					ctrl.targetY = curSelected - 9;
+					grpControls.add(ctrl);
 			}
+			FlxG.save.flush();
+		}
 	}
 
 	var isSettingControl:Bool = false;
@@ -198,7 +227,7 @@ class OptionsMenu extends MusicBeatState
 		#if !switch
 		// NGio.logEvent('Fresh');
 		#end
-		
+
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;

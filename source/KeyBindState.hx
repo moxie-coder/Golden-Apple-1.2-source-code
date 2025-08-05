@@ -15,19 +15,24 @@ using StringTools;
 
 class KeyBindState extends MusicBeatState
 {
-    var isWaitingInput:Bool = false;
+	var isWaitingInput:Bool = false;
 
-    var daControls:Array<String> = ['LEFT TO ${Controls.realControls[0]}', 'DOWN TO ${Controls.realControls[1]}', 'UP TO ${Controls.realControls[2]}', 'RIGHT TO ${Controls.realControls[3]}'];
+	var daControls:Array<String> = [
+		'LEFT TO ${Controls.realControls[0]}',
+		'DOWN TO ${Controls.realControls[1]}',
+		'UP TO ${Controls.realControls[2]}',
+		'RIGHT TO ${Controls.realControls[3]}'
+	];
 
-    var thoseThings:FlxTypedGroup<Alphabet>;
+	var thoseThings:FlxTypedGroup<Alphabet>;
 
-    var curSelected:Int = 0;
+	var curSelected:Int = 0;
 
-    var pressAButton:FlxText;
+	var pressAButton:FlxText;
 
-    override function create()
-    {
-        var menuBG:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
+	override function create()
+	{
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
 		menuBG.color = 0xFF21d2a8;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
@@ -35,69 +40,71 @@ class KeyBindState extends MusicBeatState
 		menuBG.antialiasing = true;
 		add(menuBG);
 
-        thoseThings =  new FlxTypedGroup<Alphabet>();
-        add(thoseThings);
+		thoseThings = new FlxTypedGroup<Alphabet>();
+		add(thoseThings);
 
-        for (i in 0...daControls.length)
-        {
-            var controlLabel:Alphabet = new Alphabet(0, (70 * i) + 30, daControls[i], true, false);
+		for (i in 0...daControls.length)
+		{
+			var controlLabel:Alphabet = new Alphabet(0, (70 * i) + 30, daControls[i], true, false);
 			controlLabel.isMenuItem = true;
 			controlLabel.targetY = i;
 			thoseThings.add(controlLabel);
-        }
+		}
 
-        pressAButton = new FlxText(FlxG.width * 0.7, FlxG.height - 235, 0, "PRESS A BUTTON...", 55);
+		pressAButton = new FlxText(FlxG.width * 0.7, FlxG.height - 235, 0, "PRESS A BUTTON...", 55);
 		pressAButton.setFormat("Comic Sans MS Bold", 55, FlxColor.WHITE, RIGHT);
-        pressAButton.screenCenter(X);
-        add(pressAButton);
+		pressAButton.screenCenter(X);
+		add(pressAButton);
 
-        super.create();
-    }
+		super.create();
+	}
 
-    override function update(d:Float)
-    {
-        super.update(d);
+	override function update(d:Float)
+	{
+		super.update(d);
 
-        pressAButton.visible = isWaitingInput;
+		pressAButton.visible = isWaitingInput;
 
-        if (controls.ACCEPT && !isWaitingInput)
-        {
-            isWaitingInput = true;
-            new FlxTimer().start(0, function(tmr:FlxTimer){
-                if (!FlxG.keys.pressed.ENTER && !FlxG.keys.pressed.SPACE)
-                {
-                    new FlxTimer().start(0, function(controlTimer:FlxTimer){
-                        if (FlxG.keys.justPressed.ANY)
-                        {
-                            if (FlxG.keys.anyPressed(Controls.KeysNotToBindTo))
-                            {   
-                                FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), 0.6);
-                                controlTimer.reset();
-                            }
-                            else
-                                setNewBind();
-                        }
-                        else
-                            controlTimer.reset();
-                    });
-                }
-                else
-                    tmr.reset();
-            });
-        }
+		if (controls.ACCEPT && !isWaitingInput)
+		{
+			isWaitingInput = true;
+			new FlxTimer().start(0, function(tmr:FlxTimer)
+			{
+				if (!FlxG.keys.pressed.ENTER && !FlxG.keys.pressed.SPACE)
+				{
+					new FlxTimer().start(0, function(controlTimer:FlxTimer)
+					{
+						if (FlxG.keys.justPressed.ANY)
+						{
+							if (FlxG.keys.anyPressed(Controls.KeysNotToBindTo))
+							{
+								FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), 0.6);
+								controlTimer.reset();
+							}
+							else
+								setNewBind();
+						}
+						else
+							controlTimer.reset();
+					});
+				}
+				else
+					tmr.reset();
+			});
+		}
 
-        if (controls.UP_P && !isWaitingInput)
-            changeSelection(-1);
-        if (controls.DOWN_P && !isWaitingInput)
-            changeSelection(1);
+		if (controls.UP_P && !isWaitingInput)
+			changeSelection(-1);
+		if (controls.DOWN_P && !isWaitingInput)
+			changeSelection(1);
 
-        if(controls.BACK && !isWaitingInput)
-        {
-            FlxG.switchState(new OptionsMenu());
-        }
-    }
+		if (controls.BACK && !isWaitingInput)
+		{
+			FlxG.switchState(new OptionsMenu());
+		}
+	}
 
-    function changeSelection(change:Int = 0)
+	function changeSelection(change:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
@@ -128,52 +135,63 @@ class KeyBindState extends MusicBeatState
 		}
 	}
 
-    function setNewBind():Void
-    {
-        var curKeyPressed = FlxG.keys.getIsDown()[0].ID;
-        trace(curKeyPressed);
-        if (Controls.realControls.contains(curKeyPressed))
-        {
-            var lastKey = Controls.realControls.indexOf(curKeyPressed);
-            Controls.realControls[Controls.realControls.indexOf(curKeyPressed)] = Controls.realControls[curSelected];
-            Controls.realControls[curSelected] = curKeyPressed;
+	function setNewBind():Void
+	{
+		var curKeyPressed = FlxG.keys.getIsDown()[0].ID;
+		trace(curKeyPressed);
+		if (Controls.realControls.contains(curKeyPressed))
+		{
+			var lastKey = Controls.realControls.indexOf(curKeyPressed);
+			Controls.realControls[Controls.realControls.indexOf(curKeyPressed)] = Controls.realControls[curSelected];
+			Controls.realControls[curSelected] = curKeyPressed;
 
-            Controls.reloadControls();
+			Controls.reloadControls();
 
-            controls.setKeyboardScheme(KeyboardScheme.Solo, true);
-            daControls = ['LEFT TO ${Controls.realControls[0]}', 'DOWN TO ${Controls.realControls[1]}', 'UP TO ${Controls.realControls[2]}', 'RIGHT TO ${Controls.realControls[3]}'];
+			controls.setKeyboardScheme(KeyboardScheme.Solo, true);
+			daControls = [
+				'LEFT TO ${Controls.realControls[0]}',
+				'DOWN TO ${Controls.realControls[1]}',
+				'UP TO ${Controls.realControls[2]}',
+				'RIGHT TO ${Controls.realControls[3]}'
+			];
 
-            thoseThings.remove(thoseThings.members[curSelected]);
-            var controlLabel:Alphabet = new Alphabet(0, (70 * curSelected) + 30, daControls[curSelected], true, false);
-            controlLabel.isMenuItem = true;
-            controlLabel.targetY = 0;
-            thoseThings.add(controlLabel);
+			thoseThings.remove(thoseThings.members[curSelected]);
+			var controlLabel:Alphabet = new Alphabet(0, (70 * curSelected) + 30, daControls[curSelected], true, false);
+			controlLabel.isMenuItem = true;
+			controlLabel.targetY = 0;
+			thoseThings.add(controlLabel);
 
-            if (lastKey != curSelected)
-            {
-                thoseThings.remove(thoseThings.members[lastKey]);
-                var controlLabel:Alphabet = new Alphabet(0, (70 * lastKey) + 30, daControls[lastKey], true, false);
-                controlLabel.isMenuItem = true;
-                controlLabel.targetY = lastKey - curSelected;
-                thoseThings.add(controlLabel);
-            }
-        }
-        else
-        {
-            Controls.realControls[curSelected] = curKeyPressed;
+			if (lastKey != curSelected)
+			{
+				thoseThings.remove(thoseThings.members[lastKey]);
+				var controlLabel:Alphabet = new Alphabet(0, (70 * lastKey) + 30, daControls[lastKey], true, false);
+				controlLabel.isMenuItem = true;
+				controlLabel.targetY = lastKey - curSelected;
+				thoseThings.add(controlLabel);
+			}
+		}
+		else
+		{
+			Controls.realControls[curSelected] = curKeyPressed;
 
-            Controls.reloadControls();
+			Controls.reloadControls();
 
-            controls.setKeyboardScheme(KeyboardScheme.Solo, true);
-            daControls = ['LEFT TO ${Controls.realControls[0]}', 'DOWN TO ${Controls.realControls[1]}', 'UP TO ${Controls.realControls[2]}', 'RIGHT TO ${Controls.realControls[3]}'];
-            thoseThings.remove(thoseThings.members[curSelected]);
-            var controlLabel:Alphabet = new Alphabet(0, (70 * curSelected) + 30, daControls[curSelected], true, false);
-            controlLabel.isMenuItem = true;
-            controlLabel.targetY = 0;
-            thoseThings.add(controlLabel);
-        }
-        new FlxTimer().start(0.1, function(endingTimer:FlxTimer){
-            isWaitingInput = false;
-        });
-    }
+			controls.setKeyboardScheme(KeyboardScheme.Solo, true);
+			daControls = [
+				'LEFT TO ${Controls.realControls[0]}',
+				'DOWN TO ${Controls.realControls[1]}',
+				'UP TO ${Controls.realControls[2]}',
+				'RIGHT TO ${Controls.realControls[3]}'
+			];
+			thoseThings.remove(thoseThings.members[curSelected]);
+			var controlLabel:Alphabet = new Alphabet(0, (70 * curSelected) + 30, daControls[curSelected], true, false);
+			controlLabel.isMenuItem = true;
+			controlLabel.targetY = 0;
+			thoseThings.add(controlLabel);
+		}
+		new FlxTimer().start(0.1, function(endingTimer:FlxTimer)
+		{
+			isWaitingInput = false;
+		});
+	}
 }

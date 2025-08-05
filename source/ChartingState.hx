@@ -53,8 +53,16 @@ class ChartingState extends MusicBeatState
 
 	function reloadChars():Void
 	{
-		if (char1 != null) { remove(char1); char1.kill(); }
-		if (char2 != null) { remove(char2); char2.kill(); }
+		if (char1 != null)
+		{
+			remove(char1);
+			char1.kill();
+		}
+		if (char2 != null)
+		{
+			remove(char2);
+			char2.kill();
+		}
 
 		char1 = new Character(0, 0, _song.player1, true);
 		char2 = new Character(0, 0, _song.player2);
@@ -81,7 +89,7 @@ class ChartingState extends MusicBeatState
 	var noteType:Int = 0;
 	var styles:Array<String> = ['normal', 'police', 'magic'];
 
-	var noteTypeText:FlxText = new FlxText(-200, 0, 0,'Charting: Note', 16);
+	var noteTypeText:FlxText = new FlxText(-200, 0, 0, 'Charting: Note', 16);
 
 	var highlight:FlxSprite;
 
@@ -113,7 +121,7 @@ class ChartingState extends MusicBeatState
 	var rightIcon:HealthIcon;
 
 	var oneSectionSong:Bool = false;
-	
+
 	override function create()
 	{
 		curSection = lastSection;
@@ -144,7 +152,7 @@ class ChartingState extends MusicBeatState
 		}
 
 		reloadChars();
-		
+
 		leftIcon = new HealthIcon(char1.iconName);
 		rightIcon = new HealthIcon(char2.iconName);
 		leftIcon.scrollFactor.set(1, 1);
@@ -158,7 +166,6 @@ class ChartingState extends MusicBeatState
 
 		leftIcon.setPosition(0, -100);
 		rightIcon.setPosition(gridBG.width / 2, -100);
-
 
 		FlxG.mouse.visible = true;
 
@@ -205,7 +212,7 @@ class ChartingState extends MusicBeatState
 		add(curRenderedSustains);
 
 		/*noteTypeText.scrollFactor.set(0, 0);
-		add(noteTypeText);*/
+			add(noteTypeText); */
 
 		super.create();
 	}
@@ -243,7 +250,7 @@ class ChartingState extends MusicBeatState
 
 		var reloadSong:FlxButton = new FlxButton(saveButton.x + saveButton.width + 10, saveButton.y, "Reload Audio", function()
 		{
-			if (CoolUtil.isSecretSong(_song.song.toLowerCase())) 
+			if (CoolUtil.isSecretSong(_song.song.toLowerCase()))
 			{
 				CoolUtil.cheatersNeverProsper();
 			}
@@ -255,7 +262,7 @@ class ChartingState extends MusicBeatState
 
 		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload JSON", function()
 		{
-			if (CoolUtil.isSecretSong(_song.song.toLowerCase())) 
+			if (CoolUtil.isSecretSong(_song.song.toLowerCase()))
 			{
 				CoolUtil.cheatersNeverProsper();
 			}
@@ -555,6 +562,7 @@ class ChartingState extends MusicBeatState
 		}
 		return songLengthInSteps;
 	}
+
 	override function update(elapsed:Float)
 	{
 		curStep = recalculateSteps();
@@ -568,7 +576,6 @@ class ChartingState extends MusicBeatState
 		}
 		else
 		{
-			
 			strumLine.y = getYfromStrum(Conductor.songPosition % (Conductor.stepCrochet * getSongLengthInSteps()));
 		}
 		if (curBeat % 4 == 0 && curStep >= 16 * (curSection + 1))
@@ -581,18 +588,22 @@ class ChartingState extends MusicBeatState
 			{
 				addSection();
 			}
-			
+
 			if (!oneSectionSong)
 			{
 				changeSection(curSection + 1, false);
 			}
 		}
 
-		curRenderedNotes.forEach(function(daNote:Note) {
-			if (daNote.wasGoodHit && !daNote.didThing && FlxG.sound.music.playing) {
+		curRenderedNotes.forEach(function(daNote:Note)
+		{
+			if (daNote.wasGoodHit && !daNote.didThing && FlxG.sound.music.playing)
+			{
 				daNote.didThing = true;
-				if (daNote.mustPress) {
-					switch (daNote.noteData) {
+				if (daNote.mustPress)
+				{
+					switch (daNote.noteData)
+					{
 						case 0:
 							char1.playAnim('singLEFT', true);
 						case 1:
@@ -613,7 +624,8 @@ class ChartingState extends MusicBeatState
 				}
 				else
 				{
-					switch (daNote.noteData) {
+					switch (daNote.noteData)
+					{
 						case 0:
 							char2.playAnim('singLEFT', true);
 						case 1:
@@ -631,7 +643,7 @@ class ChartingState extends MusicBeatState
 						case 7:
 							char1.playAnim('singRIGHT', true);
 					}
-				}	
+				}
 			}
 		});
 
@@ -733,22 +745,22 @@ class ChartingState extends MusicBeatState
 					FlxG.sound.music.play();
 				}
 			}
-			if(FlxG.keys.justPressed.Z)
+			if (FlxG.keys.justPressed.Z)
 			{
 				this.noteType--;
-				if(noteType < 0)
+				if (noteType < 0)
 				{
 					noteType = styles.length - 1;
 				}
 			}
-			if(FlxG.keys.justPressed.X)
+			if (FlxG.keys.justPressed.X)
+			{
+				this.noteType++;
+				if (noteType == styles.length)
 				{
-					this.noteType++;
-					if(noteType == styles.length)
-					{
-						noteType = 0;
-					}
+					noteType = 0;
 				}
+			}
 
 			if (FlxG.keys.justPressed.R)
 			{
@@ -835,7 +847,7 @@ class ChartingState extends MusicBeatState
 			+ sectionStartTime()
 			+ "\nCur Note Type: "
 			+ styles[this.noteType];
-	
+
 		super.update(elapsed);
 	}
 
@@ -1041,8 +1053,6 @@ class ChartingState extends MusicBeatState
 			var daSus = i[2];
 			var daStyle = i[3];
 
-			
-
 			var note:Note = new Note(daStrumTime, daNoteInfo % 4, null, false, true, daStyle);
 			note.sustainLength = daSus;
 			note.setGraphicSize(GRID_SIZE, GRID_SIZE);
@@ -1095,26 +1105,24 @@ class ChartingState extends MusicBeatState
 	}
 
 	function deleteNote(note:Note):Void
+	{
+		trace(_song.notes[curSection].sectionNotes);
+		for (n in 0..._song.notes[curSection].sectionNotes.length)
 		{
-			trace(_song.notes[curSection].sectionNotes);
-			for (n in 0..._song.notes[curSection].sectionNotes.length)
+			var i = _song.notes[curSection].sectionNotes[n];
+			if (i == null)
+				continue;
+			if ((i[0] == note.strumTime + (note.strumTime == 0 ? 0 : 1) ? true : i[0] == note.strumTime) && i[1] % 4 == note.noteData)
+				// Why does it do this?
+				// I DONT FUCKING KNOW!!!!!!!!!!!!!!
 			{
-				var i = _song.notes[curSection].sectionNotes[n];
-				if (i == null)
-					continue;
-				if ((i[0] == note.strumTime + (note.strumTime == 0 ? 0 : 1) 
-					? true : i[0] == note.strumTime) 
-					&& i[1] % 4 == note.noteData)
-					// Why does it do this?
-					// I DONT FUCKING KNOW!!!!!!!!!!!!!!
-				{
-					trace('GAMING');
-					_song.notes[curSection].sectionNotes.remove(i);
-				}
+				trace('GAMING');
+				_song.notes[curSection].sectionNotes.remove(i);
 			}
-	
-			updateGrid();
 		}
+
+		updateGrid();
+	}
 
 	function clearSection():Void
 	{
@@ -1287,13 +1295,13 @@ class ChartingState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
-		if(curBeat % 2 == 0)
+		if (curBeat % 2 == 0)
 		{
-			if(char1 != null)
+			if (char1 != null)
 			{
 				char1.dance();
 			}
-			if(char2 != null)
+			if (char2 != null)
 			{
 				char2.dance();
 			}

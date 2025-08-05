@@ -21,7 +21,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
 #if desktop
@@ -32,38 +31,37 @@ using StringTools;
 
 class LoadingScreenState extends MusicBeatState
 {
-    var spinHead:FlxSprite;
+	var spinHead:FlxSprite;
 
-    var loadText:FlxSprite;
+	var loadText:FlxSprite;
 
 	override public function create():Void
 	{
-        var pissBaby:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
-        add(pissBaby);
+		var pissBaby:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
+		add(pissBaby);
 
-        spinHead = new FlxSprite().loadGraphic(Paths.image('PIE_EATER'));
-        spinHead.screenCenter();
-        add(spinHead);
+		spinHead = new FlxSprite().loadGraphic(Paths.image('PIE_EATER'));
+		spinHead.screenCenter();
+		add(spinHead);
 
-        loadText = new FlxSprite().loadGraphic(Paths.image('ITSLOAD'));
-        loadText.screenCenter();
-        add(loadText);
+		loadText = new FlxSprite().loadGraphic(Paths.image('ITSLOAD'));
+		loadText.screenCenter();
+		add(loadText);
 
-        super.create();
+		super.create();
 
-        new FlxTimer().start(1.5, function(skyFNF:FlxTimer) go());
+		new FlxTimer().start(1.5, function(skyFNF:FlxTimer) go());
 	}
 
 	override function update(elapsed:Float)
-	{    
-        spinHead.angle += elapsed * 75;
+	{
+		spinHead.angle += elapsed * 75;
 
 		super.update(elapsed);
 	}
 
-    function go():Void
-    {
-        new FlxTimer().start(0.5, function(skyFNF:FlxTimer) LoadingState.loadAndSwitchState(new PlayState()));
-
-    }
+	function go():Void
+	{
+		new FlxTimer().start(0.5, function(skyFNF:FlxTimer) LoadingState.loadAndSwitchState(new PlayState()));
+	}
 }
