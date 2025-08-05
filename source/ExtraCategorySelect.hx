@@ -50,7 +50,6 @@ import lime.app.Application;
 import openfl.display.Application as OpenFLApplication;
 import openfl.display.Stage;
 #end
-
 #if windows
 import sys.io.File;
 import sys.io.Process;
@@ -60,20 +59,19 @@ using StringTools;
 
 class ExtraCategorySelect extends MusicBeatState
 {
+	public static var cats:Array<String> = ['extra', 'ocs', 'joke', 'iykyk', 'secret', 'awesome', 'covers' /*, 'minus'*/];
 
-    public static var cats:Array<String> = ['extra', 'ocs', 'joke', 'iykyk', 'secret', 'awesome', 'covers'/*, 'minus'*/];
+	public static var curCat:Int = 0;
 
-    public static var curCat:Int = 0;
+	var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SUSSUS AMOGUS'));
 
-    var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SUSSUS AMOGUS'));
+	var catIcon:FlxSprite = new FlxSprite().loadGraphic(Paths.image('categories/extra'));
 
-    var catIcon:FlxSprite = new FlxSprite().loadGraphic(Paths.image('categories/extra'));
+	var curSelected:Int = 0;
 
-    var curSelected:Int = 0;
+	var skyMod:FlxSprite;
 
-    var skyMod:FlxSprite;
-    
-    override function create() 
+	override function create()
 	{
 		if (!FlxG.sound.music.playing)
 		{
@@ -81,61 +79,65 @@ class ExtraCategorySelect extends MusicBeatState
 			Conductor.changeBPM(150);
 		}
 
-        skyMod = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
-        skyMod.visible = false;
-        skyMod.scale.set(2.4, 2.4);
-        skyMod.angle = 25;
-        skyMod.x = 1280 * 1.7;
+		skyMod = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
+		skyMod.visible = false;
+		skyMod.scale.set(2.4, 2.4);
+		skyMod.angle = 25;
+		skyMod.x = 1280 * 1.7;
 
-        #if desktop DiscordClient.changePresence("In the Extra Song Category Select Menu", null); #end
+		#if desktop DiscordClient.changePresence("In the Extra Song Category Select Menu", null); #end
 
-        bg.loadGraphic(MainMenuState.randomizeBG());
+		bg.loadGraphic(MainMenuState.randomizeBG());
 		bg.color = FlxColor.LIME;
 		add(bg);
-    
+
 		changeSelection();
-        
-        add(catIcon);
 
+		add(catIcon);
 
-        add(skyMod);
+		add(skyMod);
 
-        super.create();
-    }
+		super.create();
+	}
 
-    override function update(p:Float)
+	override function update(p:Float)
 	{
 		Conductor.songPosition = FlxG.sound.music.time;
 
-        super.update(p);
+		super.update(p);
 
-        if (controls.LEFT_P)
-            changeSelection(-1);
+		if (controls.LEFT_P)
+			changeSelection(-1);
 
-        if (controls.RIGHT_P)
-            changeSelection(1);
+		if (controls.RIGHT_P)
+			changeSelection(1);
 
-        if ((controls.BACK || FlxG.keys.justPressed.BACKSPACE))
-            FlxG.switchState(new PlayMenuState());
+		if ((controls.BACK || FlxG.keys.justPressed.BACKSPACE))
+			FlxG.switchState(new PlayMenuState());
 
-        if (controls.ACCEPT || FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT || FlxG.keys.justPressed.ENTER)
 		{
-            FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-            //stupidest bullshit ive ever done
-            FlxTween.tween(bg, {"scale.x":0,"scale.y":0}, 1, {ease:FlxEase.expoIn});
-            FlxTween.tween(catIcon, {"scale.x": catIcon.scale.x * 11, "scale.y": catIcon.scale.y * 11}, 1, {ease:FlxEase.expoIn, onComplete:function(twn:FlxTween){
-                skyMod.visible = true;
-                FlxTween.tween(skyMod, {x: 0}, 0.05, {onComplete:function(twn2:FlxTween){
-                    curCat = curSelected;
-                    PlayState.ohMyFuckingFuckingFuckingGod(cats[curSelected]);
-                }});
-                
-            }});
-            
+			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+			// stupidest bullshit ive ever done
+			FlxTween.tween(bg, {"scale.x": 0, "scale.y": 0}, 1, {ease: FlxEase.expoIn});
+			FlxTween.tween(catIcon, {"scale.x": catIcon.scale.x * 11, "scale.y": catIcon.scale.y * 11}, 1, {
+				ease: FlxEase.expoIn,
+				onComplete: function(twn:FlxTween)
+				{
+					skyMod.visible = true;
+					FlxTween.tween(skyMod, {x: 0}, 0.05, {
+						onComplete: function(twn2:FlxTween)
+						{
+							curCat = curSelected;
+							PlayState.ohMyFuckingFuckingFuckingGod(cats[curSelected]);
+						}
+					});
+				}
+			});
 		}
-    }
+	}
 
-    function changeSelection(change:Int = 0)
+	function changeSelection(change:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 		curSelected += change;
@@ -146,9 +148,9 @@ class ExtraCategorySelect extends MusicBeatState
 		if (curSelected >= cats.length)
 			curSelected = 0;
 
-        catIcon.loadGraphic(Paths.image('categories/' + cats[curSelected]));
-        catIcon.setGraphicSize(0, 710);
-        catIcon.updateHitbox();
-        catIcon.screenCenter();
+		catIcon.loadGraphic(Paths.image('categories/' + cats[curSelected]));
+		catIcon.setGraphicSize(0, 710);
+		catIcon.updateHitbox();
+		catIcon.screenCenter();
 	}
 }

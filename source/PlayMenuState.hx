@@ -29,7 +29,16 @@ class PlayMenuState extends MusicBeatState
 
 	var baldisHotCock:Int = 1;
 
-	var optionShit:Array<String> = ['disruption', 'applecore', 'disability', 'wireframe', 'algebra', 'deformation', 'ferocious', 'extras'];
+	var optionShit:Array<String> = [
+		'disruption',
+		'applecore',
+		'disability',
+		'wireframe',
+		'algebra',
+		'deformation',
+		'ferocious',
+		'extras'
+	];
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
@@ -53,8 +62,8 @@ class PlayMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
-	public static var bgPaths:Array<String> = 
-	[
+
+	public static var bgPaths:Array<String> = [
 		'backgrounds/biorange',
 		'backgrounds/cudroid',
 		'backgrounds/dreambean',
@@ -73,7 +82,7 @@ class PlayMenuState extends MusicBeatState
 		}
 
 		persistentUpdate = persistentDraw = true;
-		
+
 		if (FlxG.save.data.eyesores == null)
 		{
 			FlxG.save.data.eyesores = true;
@@ -82,14 +91,14 @@ class PlayMenuState extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-		
+
 		if (FlxG.save.data.unlockedcharacters == null)
 		{
-			FlxG.save.data.unlockedcharacters = [true,true,false,false,false,false];
+			FlxG.save.data.unlockedcharacters = [true, true, false, false, false, false];
 		}
 
 		daRealEngineVer = engineVers[FlxG.random.int(0, 0)];
-		
+
 		bg = new FlxSprite(-80).loadGraphic(Paths.image('menu/${optionShit[0]}'));
 		bg.scrollFactor.set();
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -116,12 +125,12 @@ class PlayMenuState extends MusicBeatState
 		add(camFollow);
 
 		FlxG.camera.follow(camFollow, null, 0.32);
-		
+
 		camFollow.setPosition(640, 150.5);
 		for (i in 0...optionShit.length)
 		{
 			var theFuckingOption:String = optionShit[i];
-			if(theFuckingOption == 'spppoooookeeeeyyyy' && !SaveFileState.saveFile.data.elfDiscovered)
+			if (theFuckingOption == 'spppoooookeeeeyyyy' && !SaveFileState.saveFile.data.elfDiscovered)
 			{
 				optionShit[i] = 'unknown';
 				theFuckingOption = 'unknown';
@@ -141,11 +150,14 @@ class PlayMenuState extends MusicBeatState
 			if (firstStart)
 			{
 				menuItem.y += 2000;
-				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				FlxTween.tween(menuItem, {y: 60 + (i * 160)}, 1 + (i * 0.25), {
+					ease: FlxEase.expoInOut,
+					onComplete: function(flxTween:FlxTween)
 					{
-						finishedFunnyMove = true; 
+						finishedFunnyMove = true;
 						changeItem();
-					}});
+					}
+				});
 			}
 		}
 
@@ -157,7 +169,6 @@ class PlayMenuState extends MusicBeatState
 		add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();
-
 
 		controls.setKeyboardScheme(KeyboardScheme.Solo, true);
 
@@ -207,12 +218,12 @@ class PlayMenuState extends MusicBeatState
 				selectedSomethin = true;
 
 				var theFuckingOption:String = optionShit[curSelected];
-				if(theFuckingOption == 'ferocious' && !SaveFileState.saveFile.data.ferociousFound)
+				if (theFuckingOption == 'ferocious' && !SaveFileState.saveFile.data.ferociousFound)
 				{
-					//theFuckingOption = 'unknown';
+					// theFuckingOption = 'unknown';
 				}
 
-				if(theFuckingOption == 'unknown')
+				if (theFuckingOption == 'unknown')
 				{
 					trace('my piss is blood');
 					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
@@ -225,7 +236,7 @@ class PlayMenuState extends MusicBeatState
 				magenta.updateHitbox();
 				magenta.screenCenter();
 
-				if(theFuckingOption != 'unknown')
+				if (theFuckingOption != 'unknown')
 				{
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
@@ -262,21 +273,21 @@ class PlayMenuState extends MusicBeatState
 									FlxG.switchState(new ExtraCategorySelect());
 								case 'ferocious':
 									SaveFileState.saveFile.data.playedFerocious = true;
-									
+
 									var poop:String = Highscore.formatSong(daChoice, 1);
 
 									trace(poop);
-						
+
 									PlayState.SONG = Song.loadFromJson(poop, daChoice);
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
 									PlayState.xtraSong = false;
 									PlayState.practicing = false;
-			
+
 									PlayState.fakedScore = false;
-							
+
 									PlayState.deathCounter = 0;
-						
+
 									PlayState.storyWeek = 1;
 									PlayState.characteroverride = 'none';
 									PlayState.formoverride = 'none';
@@ -285,17 +296,17 @@ class PlayMenuState extends MusicBeatState
 									var poop:String = Highscore.formatSong(daChoice, 1);
 
 									trace(poop);
-						
+
 									PlayState.SONG = Song.loadFromJson(poop, daChoice);
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
 									PlayState.xtraSong = false;
 									PlayState.practicing = false;
-			
+
 									PlayState.fakedScore = false;
-							
+
 									PlayState.deathCounter = 0;
-						
+
 									PlayState.storyWeek = 1;
 									PlayState.characteroverride = 'none';
 									PlayState.formoverride = 'none';
@@ -304,7 +315,6 @@ class PlayMenuState extends MusicBeatState
 						});
 					}
 				});
-				
 			}
 		}
 
@@ -314,7 +324,6 @@ class PlayMenuState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
-		
 	}
 
 	function changeItem(huh:Int = 0)
@@ -326,7 +335,7 @@ class PlayMenuState extends MusicBeatState
 			if (curSelected >= menuItems.length)
 				curSelected = 0;
 			if (curSelected < 0)
-				curSelected = menuItems.length - 1;	
+				curSelected = menuItems.length - 1;
 		}
 
 		menuItems.forEach(function(spr:FlxSprite)
@@ -347,19 +356,19 @@ class PlayMenuState extends MusicBeatState
 		#end
 
 		var theFuckingOption:String = optionShit[curSelected];
-		if(theFuckingOption == 'ferocious' && !SaveFileState.saveFile.data.ferociousFound)
+		if (theFuckingOption == 'ferocious' && !SaveFileState.saveFile.data.ferociousFound)
 		{
 			theFuckingOption = 'unknown';
 		}
 
 		var fuckingCockDickPenis:Int = FlxG.random.int(0, baldisHotCock);
-		if(SaveFileState.saveFile.data.elfMode)
+		if (SaveFileState.saveFile.data.elfMode)
 		{
 			bg.loadGraphic(Paths.image('backgrounds_elf/${fuckingCockDickPenis}'));
 		}
-		else 
+		else
 		{
-			if(optionShit[curSelected] == 'ferocious' && !SaveFileState.saveFile.data.playedFerocious)
+			if (optionShit[curSelected] == 'ferocious' && !SaveFileState.saveFile.data.playedFerocious)
 			{
 				bg.loadGraphic(Paths.image('menu/unknown'));
 			}
@@ -377,9 +386,9 @@ class PlayMenuState extends MusicBeatState
 
 	var difficultyImg:FlxSprite;
 
-	function updateDiffies() 
+	function updateDiffies()
 	{
-		if(difficultyImg != null)
+		if (difficultyImg != null)
 		{
 			remove(difficultyImg);
 		}
@@ -388,7 +397,7 @@ class PlayMenuState extends MusicBeatState
 		difficultyImg.scale.set(0.5, 0.5);
 		difficultyImg.setPosition(FlxG.width - ((546 / 1.4) + 5), FlxG.height - ((497 / 1.4) + 5));
 		difficultyImg.scrollFactor.set(0, 0);
-		if(optionShit[curSelected] == 'extras')
+		if (optionShit[curSelected] == 'extras')
 		{
 			difficultyImg.alpha = 0;
 		}

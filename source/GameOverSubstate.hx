@@ -23,7 +23,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	var dave:FlxSprite;
 
-	public function new(x:Float, y:Float,char:String)
+	public function new(x:Float, y:Float, char:String)
 	{
 		var daStage = PlayState.curStage;
 		var daBf:String = '';
@@ -38,9 +38,9 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			char = "bf-pixel-dead";
 		}
-		if(char == '3d-bf' || char == 'shoulder-3d-bf' || char == 'bf-pad')
+		if (char == '3d-bf' || char == 'shoulder-3d-bf' || char == 'bf-pad')
 		{
-			if(daStage == 'sunshine' && FlxG.save.data.sensitiveContent)
+			if (daStage == 'sunshine' && FlxG.save.data.sensitiveContent)
 			{
 				char = 'hang-bf';
 				volumese = 0;
@@ -63,7 +63,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		Conductor.songPosition = 0;
 
 		bf = new Boyfriend(x, y, char);
-		if(bf.animation.getByName('firstDeath') == null)
+		if (bf.animation.getByName('firstDeath') == null)
 		{
 			bf = new Boyfriend(x, y, "bf");
 		}
@@ -71,15 +71,22 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		camFollow = new FlxObject(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y, 1, 1);
 		add(camFollow);
-		
-		if(char == 'hang-bf')
+
+		if (char == 'hang-bf')
 		{
 			bf.scrollFactor.set();
 			bf.screenCenter();
 			FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		}
 
-		FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix), volumese).onComplete = function baldiDick(){if(!isEnding){FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix), volumese); canBop = true;}};
+		FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix), volumese).onComplete = function baldiDick()
+		{
+			if (!isEnding)
+			{
+				FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix), volumese);
+				canBop = true;
+			}
+		};
 
 		Conductor.changeBPM(100);
 
@@ -90,88 +97,89 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		bf.playAnim('firstDeath');
 
-	var canSelect = true;
+		var canSelect = true;
 
-	override function update(elapsed:Float)
-	{
-		FlxG.camera.zoom = FlxMath.lerp(1, FlxG.camera.zoom, 0.95);
-
-		super.update(elapsed);
-
-		if (controls.ACCEPT && canSelect)
+		override function update(elapsed:Float)
 		{
-			endBullshit();
-		}
+			FlxG.camera.zoom = FlxMath.lerp(1, FlxG.camera.zoom, 0.95);
 
-		if (controls.BACK && canSelect)
-		{
-			FlxG.sound.music.stop();
+			super.update(elapsed);
 
-			if (PlayState.SONG.song.toLowerCase() == 'disability') {
-				trace("WUH OH!!!");
-
-				SaveFileState.saveFile.data.foundRecoveredProject = true;
-
-				PlayState.practicing = false;
-			
-				PlayState.fakedScore = false;
-		
-				PlayState.deathCounter = 0;
-
-				var poop:String = Highscore.formatSong('recovered-project', 1);
-
-				trace(poop);
-
-				PlayState.SONG = Song.loadFromJson(poop, 'recovered-project');
-				PlayState.isStoryMode = false;
-				PlayState.storyDifficulty = 1;
-
-				PlayState.storyWeek = 1;
-				LoadingState.loadAndSwitchState(new PlayState());
+			if (controls.ACCEPT && canSelect)
+			{
+				endBullshit();
 			}
-			else
-				PlayState.practicing = false;
-			
+
+			if (controls.BACK && canSelect)
+			{
+				FlxG.sound.music.stop();
+
+				if (PlayState.SONG.song.toLowerCase() == 'disability')
+				{
+					trace("WUH OH!!!");
+
+					SaveFileState.saveFile.data.foundRecoveredProject = true;
+
+					PlayState.practicing = false;
+
+					PlayState.fakedScore = false;
+
+					PlayState.deathCounter = 0;
+
+					var poop:String = Highscore.formatSong('recovered-project', 1);
+
+					trace(poop);
+
+					PlayState.SONG = Song.loadFromJson(poop, 'recovered-project');
+					PlayState.isStoryMode = false;
+					PlayState.storyDifficulty = 1;
+
+					PlayState.storyWeek = 1;
+					LoadingState.loadAndSwitchState(new PlayState());
+				}
+				else
+					PlayState.practicing = false;
+
 				PlayState.fakedScore = false;
-			
+
 				PlayState.deathCounter = 0;
 
 				FlxG.switchState(new MainMenuState());
+			}
+
+			if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == followy)
+			{
+				FlxG.camera.follow(camFollow, LOCKON, 0.01);
+			}
+
+			if (FlxG.sound.music.playing)
+			{
+				Conductor.songPosition = FlxG.sound.music.time;
+			}
 		}
 
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == followy)
+		var canBop:Bool = false;
+
+		override function beatHit()
 		{
-			FlxG.camera.follow(camFollow, LOCKON, 0.01);
+			super.beatHit();
+
+			if (curBeat % 2 == 0 && canBop && !isEnding)
+			{
+				bf.playAnim('deathLoop', true);
+			}
+
+			FlxG.log.add('beat');
 		}
 
-		if (FlxG.sound.music.playing)
+		var isEnding:Bool = false;
+
+		function endBullshit():Void
 		{
-			Conductor.songPosition = FlxG.sound.music.time;
-		}
-	}
+			if (!isEnding)
+			{
+				isEnding = true;
 
-	var canBop:Bool = false;
-
-	override function beatHit()
-	{
-		super.beatHit();
-
-		if(curBeat % 2 == 0 && canBop && !isEnding)
-		{
-			bf.playAnim('deathLoop', true);
-		}
-
-		FlxG.log.add('beat');
-	}
-
-	var isEnding:Bool = false;
-
-	function endBullshit():Void
-	{
-		if (!isEnding)
-		{
-			isEnding = true;
-			
 				bf.playAnim('deathConfirm', true);
 				FlxG.sound.music.stop();
 				FlxG.sound.play(Paths.music('gameOverEnd' + stageSuffix), volumese);
@@ -182,7 +190,6 @@ class GameOverSubstate extends MusicBeatSubstate
 						LoadingState.loadAndSwitchState(new PlayState());
 					});
 				});
-			
+			}
 		}
 	}
-}

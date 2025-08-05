@@ -28,7 +28,46 @@ class MainMenuState extends MusicBeatState
 
 	var realMenuItems:Int = 4;
 
-	var optionShit:Array<String> = ['play', 'options', 'credits', 'discord', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'dave x bambi shipping cute'];
+	var optionShit:Array<String> = [
+		'play',
+		'options',
+		'credits',
+		'discord',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'dave x bambi shipping cute'
+	];
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
@@ -47,8 +86,8 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
-	public static var bgPaths:Array<String> = 
-	[
+
+	public static var bgPaths:Array<String> = [
 		'backgrounds/biorange',
 		'backgrounds/cudroid',
 		'backgrounds/dreambean',
@@ -67,7 +106,7 @@ class MainMenuState extends MusicBeatState
 		}
 
 		persistentUpdate = persistentDraw = true;
-		
+
 		if (FlxG.save.data.eyesores == null)
 		{
 			FlxG.save.data.eyesores = true;
@@ -76,14 +115,14 @@ class MainMenuState extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-		
+
 		if (FlxG.save.data.unlockedcharacters == null)
 		{
-			FlxG.save.data.unlockedcharacters = [true,true,false,false,false,false];
+			FlxG.save.data.unlockedcharacters = [true, true, false, false, false, false];
 		}
 
 		daRealEngineVer = engineVers[FlxG.random.int(0, 0)];
-		
+
 		var bg:FlxSprite = new FlxSprite().loadGraphic(randomizeBG());
 		bg.scrollFactor.set();
 		bg.screenCenter();
@@ -106,7 +145,7 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 
 		FlxG.camera.follow(camFollow, null, 0.06);
-		
+
 		camFollow.setPosition(640, 150.5);
 		for (i in 0...optionShit.length)
 		{
@@ -115,7 +154,8 @@ class MainMenuState extends MusicBeatState
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			if (optionShit[i] == '') menuItem.visible = false;
+			if (optionShit[i] == '')
+				menuItem.visible = false;
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
@@ -126,11 +166,14 @@ class MainMenuState extends MusicBeatState
 			if (firstStart)
 			{
 				menuItem.y += 2000;
-				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+				FlxTween.tween(menuItem, {y: 60 + (i * 160)}, 1 + (i * 0.25), {
+					ease: FlxEase.expoInOut,
+					onComplete: function(flxTween:FlxTween)
 					{
-						finishedFunnyMove = true; 
+						finishedFunnyMove = true;
 						changeItem();
-					}});
+					}
+				});
 			}
 		}
 
@@ -142,7 +185,6 @@ class MainMenuState extends MusicBeatState
 		add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();
-
 
 		Controls.initControls();
 		controls.setKeyboardScheme(KeyboardScheme.Solo, true);
@@ -170,7 +212,6 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-
 			if (controls.UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -188,7 +229,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new SaveFileState());
 			}
 
-			if(FlxG.keys.justPressed.SEVEN)
+			if (FlxG.keys.justPressed.SEVEN)
 			{
 				#if debug
 				FlxG.switchState(new FerociousEnding(100));
@@ -197,16 +238,16 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT || FlxG.keys.justPressed.ENTER)
 			{
-				if(optionShit[curSelected] == '')
+				if (optionShit[curSelected] == '')
 				{
 					return;
 				}
-				if(optionShit[curSelected] == 'discord')
+				if (optionShit[curSelected] == 'discord')
 				{
 					fancyOpenURL('https://discord.gg/goldenapple');
 					return;
 				}
-				if(optionShit[curSelected] == 'credits')
+				if (optionShit[curSelected] == 'credits')
 				{
 					fancyOpenURL('https://docs.google.com/document/d/14XHPD53QQILlwTKla0aE5zvEqU9hiAqRw5D3g1QVKl0/edit?usp=sharing');
 					return;
@@ -245,19 +286,18 @@ class MainMenuState extends MusicBeatState
 									trace(poop);
 
 									SaveFileState.saveFile.data.shipUnlocked = true;
-						
+
 									PlayState.SONG = Song.loadFromJson(poop, 'dave-x-bambi-shipping-cute');
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
 									PlayState.xtraSong = false;
-						
+
 									PlayState.storyWeek = 1;
 									LoadingState.loadAndSwitchState(new PlayState());
 							}
 						});
 					}
 				});
-				
 			}
 		}
 	}
@@ -265,7 +305,6 @@ class MainMenuState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
-		
 	}
 
 	function changeItem(huh:Int = 0)
@@ -277,7 +316,7 @@ class MainMenuState extends MusicBeatState
 			if (curSelected >= menuItems.length)
 				curSelected = 0;
 			if (curSelected < 0)
-				curSelected = realMenuItems - 1;	
+				curSelected = realMenuItems - 1;
 		}
 
 		menuItems.forEach(function(spr:FlxSprite)
@@ -293,6 +332,7 @@ class MainMenuState extends MusicBeatState
 			spr.updateHitbox();
 		});
 	}
+
 	public static function randomizeBG():flixel.system.FlxAssets.FlxGraphicAsset
 	{
 		var chance:Int = FlxG.random.int(0, bgPaths.length - 1);

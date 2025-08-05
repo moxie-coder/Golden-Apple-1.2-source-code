@@ -53,11 +53,11 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		//pissy deez
+		// pissy deez
 		/*fun = FlxG.random.int(0, 999);
-		if(fun == 1)
-		{
-			LoadingState.loadAndSwitchState(new SusState());
+			if(fun == 1)
+			{
+				LoadingState.loadAndSwitchState(new SusState());
 		}*/
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
@@ -72,7 +72,6 @@ class TitleState extends MusicBeatState
 
 	var logoBl:FlxSprite;
 	var titleText:FlxSprite;
-
 
 	function startIntro()
 	{
@@ -112,8 +111,8 @@ class TitleState extends MusicBeatState
 
 		titleDude = new FlxSprite(-150, 1000);
 		titleDude.frames = Paths.getSparrowAtlas('golden_apple_title_guys');
-		var fuckingStupid:Int = FlxG.random.int(0,999);
-		if(fuckingStupid == 0)
+		var fuckingStupid:Int = FlxG.random.int(0, 999);
+		if (fuckingStupid == 0)
 		{
 			altIdle = true;
 		}
@@ -123,7 +122,14 @@ class TitleState extends MusicBeatState
 		titleDude.animation.addByIndices('idle-alt-true', 'ALT-IDLE', [6, 5, 4, 3, 2, 1, 0], '', 24, false);
 		titleDude.animation.addByIndices('idle-true', 'IDLE', [6, 5, 4, 3, 2, 1, 0], '', 24, false);
 
-		if(altIdle){titleDude.animation.play('idle-alt-true');}else{titleDude.animation.play('idle-true');}
+		if (altIdle)
+		{
+			titleDude.animation.play('idle-alt-true');
+		}
+		else
+		{
+			titleDude.animation.play('idle-true');
+		}
 		add(titleDude);
 
 		add(logoBl);
@@ -233,9 +239,7 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
-
 				FlxG.switchState(OutdatedSubState.leftState ? new MainMenuState() : new OutdatedSubState());
-
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
@@ -280,15 +284,13 @@ class TitleState extends MusicBeatState
 		}
 	}
 
-	override function stepHit() 
+	override function stepHit()
 	{
 		super.stepHit();
 		if (curStep % 2 == 0)
 		{
 			stupid++;
-			altIdle ?
-				titleDude.animation.play('idle-alt-${stupid % 2 == 0}', true):
-				titleDude.animation.play('idle-${stupid % 2 == 0}', true);
+			altIdle ? titleDude.animation.play('idle-alt-${stupid % 2 == 0}', true) : titleDude.animation.play('idle-${stupid % 2 == 0}', true);
 		}
 	}
 
@@ -298,9 +300,9 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		if(curBeat % 2 == 0)
+		if (curBeat % 2 == 0)
 		{
-			if(danced)
+			if (danced)
 			{
 				logoBl.animation.play('bumpRight', true);
 			}

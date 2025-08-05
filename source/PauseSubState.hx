@@ -19,7 +19,12 @@ class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['Resume', 'Toggle Practice Mode'/*, 'Toggle Botplay'*/, 'Restart Song', 'Exit to menu'];
+	var menuItems:Array<String> = [
+		'Resume',
+		'Toggle Practice Mode' /*, 'Toggle Botplay'*/,
+		'Restart Song',
+		'Exit to menu'
+	];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -98,8 +103,8 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(practiceText, {alpha: 1, y: practiceText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(bottyText, {alpha: 1, y: bottyText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 
-
-		if (PlayState.SONG.song.toLowerCase() == 'wireframe' && SaveFileState.saveFile.data.elfMode) {
+		if (PlayState.SONG.song.toLowerCase() == 'wireframe' && SaveFileState.saveFile.data.elfMode)
+		{
 			var elf = new FlxSprite();
 			elf.frames = Paths.getSparrowAtlas('THE BEST EVER/untitled');
 			elf.animation.addByPrefix('idle', 'MY BALDI BASICS PLUS PRO GAMES', 24, true);
@@ -158,14 +163,14 @@ class PauseSubState extends MusicBeatSubstate
 				case 'Toggle Practice Mode':
 					if (PlayState.SONG.song.toLowerCase() == 'penis')
 					{
-						if(grpMenuShit.members[1].alpha != 0)
+						if (grpMenuShit.members[1].alpha != 0)
 						{
 							FlxTween.color(grpMenuShit.members[1], 0.15, FlxColor.WHITE, FlxColor.RED);
 							FlxTween.tween(grpMenuShit.members[1], {alpha: 0}, 0.25);
 						}
 						trace("hello");
 					}
-					else 
+					else
 					{
 						PlayState.fakedScore = true;
 						PlayState.practicing = !PlayState.practicing;
@@ -174,14 +179,14 @@ class PauseSubState extends MusicBeatSubstate
 				case 'Toggle Botplay':
 					if (PlayState.SONG.song.toLowerCase() == 'penis')
 					{
-						if(grpMenuShit.members[2].alpha != 0)
+						if (grpMenuShit.members[2].alpha != 0)
 						{
 							FlxTween.color(grpMenuShit.members[2], 0.15, FlxColor.WHITE, FlxColor.RED);
 							FlxTween.tween(grpMenuShit.members[2], {alpha: 0}, 0.25);
 						}
 						trace("hello");
 					}
-					else 
+					else
 					{
 						PlayState.fakedScore = true;
 						PlayState.bottyPlay = !PlayState.bottyPlay;
@@ -192,11 +197,12 @@ class PauseSubState extends MusicBeatSubstate
 				case "Exit to menu":
 					if (PlayState.SONG.song.toLowerCase() == 'penis')
 						FlxG.switchState(new GetBackState());
-					else {
+					else
+					{
 						PlayState.characteroverride = 'none';
 						PlayState.formoverride = 'none';
 						FlxG.switchState(new MainMenuState());
-					}		
+					}
 			}
 		}
 
@@ -230,7 +236,7 @@ class PauseSubState extends MusicBeatSubstate
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			if(item.alpha != 0)
+			if (item.alpha != 0)
 			{
 				item.alpha = 0.6;
 			}

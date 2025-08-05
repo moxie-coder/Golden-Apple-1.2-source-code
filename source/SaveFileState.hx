@@ -43,7 +43,7 @@ class SaveFileState extends MusicBeatState
 	override function create()
 	{
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
-		
+
 		for (i in 0...3)
 		{
 			var save:FlxSave = new FlxSave();
@@ -88,13 +88,15 @@ class SaveFileState extends MusicBeatState
 
 	var baldisPenis:FlxSprite = new FlxSprite().makeGraphic(2000, 2000, FlxColor.BLACK);
 
-	function warnOfErase() 
+	function warnOfErase()
 	{
 		add(baldisPenis);
 		baldisPenis.alpha = 0;
 		baldisPenis.screenCenter();
 		FlxTween.tween(baldisPenis, {alpha: 0.75}, 0.3);
-		warner = new FlxText(0, 50, FlxG.width, 'WARNING!\nThis will erase every save\nand all of your options!\nTHIS CANNOT BE REVERSED!\nIf you press yes, the game will restart to a clean slate!\nY - Yes\nN - No', 42);
+		warner = new FlxText(0, 50, FlxG.width,
+			'WARNING!\nThis will erase every save\nand all of your options!\nTHIS CANNOT BE REVERSED!\nIf you press yes, the game will restart to a clean slate!\nY - Yes\nN - No',
+			42);
 		warner.setFormat("Comic Sans MS Bold", 42, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		warner.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 4, 1);
 		warner.screenCenter();
@@ -103,7 +105,7 @@ class SaveFileState extends MusicBeatState
 		FlxTween.tween(warner, {alpha: 1}, 0.3);
 	}
 
-	function actuallyErase() 
+	function actuallyErase()
 	{
 		selectedSomething = true;
 
@@ -113,7 +115,7 @@ class SaveFileState extends MusicBeatState
 
 		FlxG.sound.music.fadeOut(0.3);
 
-		for(savey in savesCanDelete)
+		for (savey in savesCanDelete)
 		{
 			eraseSave(savesCanDelete[savey]);
 		}
@@ -131,22 +133,22 @@ class SaveFileState extends MusicBeatState
 
 		if (!selectedSomething && !inWarn)
 		{
-			if(FlxG.keys.justPressed.R)
+			if (FlxG.keys.justPressed.R)
 			{
 				inWarn = true;
 				warnOfErase();
 			}
-			
+
 			if (controls.UP_P)
 				changeSelection(-1);
 			if (controls.DOWN_P)
 				changeSelection(1);
 
-            if(controls.BACK)
-            {
-                selectedSomething = true;
-                FlxG.switchState(new TitleState());
-            }
+			if (controls.BACK)
+			{
+				selectedSomething = true;
+				FlxG.switchState(new TitleState());
+			}
 
 			if (controls.ACCEPT)
 			{
@@ -155,9 +157,9 @@ class SaveFileState extends MusicBeatState
 					if (!deleteMode)
 					{
 						selectedSomething = true;
-							
+
 						FlxG.sound.play(Paths.sound('confirmMenu'));
-		
+
 						for (i in 0...grpControls.length)
 						{
 							var fuk:Alphabet = grpControls.members[i];
@@ -173,7 +175,7 @@ class SaveFileState extends MusicBeatState
 									saveFile.bind("gapple" + Std.string(curSelected), "gappleSaves");
 									saveFile.data.init = true;
 									var dumbass:Map<String, Bool> = new Map<String, Bool>();
-									if(saveFile.data.charUnlock == null)
+									if (saveFile.data.charUnlock == null)
 									{
 										dumbass.set('bf', true);
 										dumbass.set('bf-pixel', true);
@@ -186,7 +188,7 @@ class SaveFileState extends MusicBeatState
 									saveFile.flush();
 									PlayerSettings.init();
 									Highscore.load();
-									FlxG.switchState(new MainMenuState());		
+									FlxG.switchState(new MainMenuState());
 								});
 							}
 						}
@@ -206,7 +208,7 @@ class SaveFileState extends MusicBeatState
 					else
 					{
 						grpControls.clear();
-	
+
 						for (i in 0...controlsStrings.length)
 						{
 							var controlLabel:Alphabet = new Alphabet(0, 0, controlsStrings[i], true, false);
@@ -215,21 +217,21 @@ class SaveFileState extends MusicBeatState
 							grpControls.add(controlLabel);
 							// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 						}
-		
+
 						curSelected = 0;
 						changeSelection(curSelected);
 					}
 				}
 			}
 		}
-		else if(!selectedSomething && inWarn)
+		else if (!selectedSomething && inWarn)
 		{
-			if(FlxG.keys.justPressed.Y)
+			if (FlxG.keys.justPressed.Y)
 			{
 				selectedSomething = true;
 				actuallyErase();
 			}
-			if(FlxG.keys.justPressed.N)
+			if (FlxG.keys.justPressed.N)
 			{
 				inWarn = false;
 				remove(baldisPenis);
@@ -249,7 +251,7 @@ class SaveFileState extends MusicBeatState
 		trace("Erased Save File " + (id + 1));
 		save.bind("SaveFile" + Std.string(id), "saves");
 		save.flush();
-		
+
 		emptySave[id] = true;
 		controlsStrings[id] = "Save File " + shpop[id] + " Empty";
 		idkLol();
@@ -272,7 +274,7 @@ class SaveFileState extends MusicBeatState
 
 		grpControls.clear();
 
-		var savesAvailable:Array<String> = []; 
+		var savesAvailable:Array<String> = [];
 
 		for (i in 0...savesCanDelete.length)
 		{
@@ -300,7 +302,7 @@ class SaveFileState extends MusicBeatState
 		#if !switch
 		// NGio.logEvent('Fresh');
 		#end
-		
+
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;

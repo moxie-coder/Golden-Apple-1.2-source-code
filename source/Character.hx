@@ -29,7 +29,7 @@ class Character extends FlxSprite
 
 	public var nativelyPlayable:Bool = false;
 
-	public var globaloffset:Array<Float> = [0,0];
+	public var globaloffset:Array<Float> = [0, 0];
 
 	public var curCamOffsetX:Float = 0;
 	public var curCamOffsetY:Float = 0;
@@ -57,7 +57,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -67,7 +67,7 @@ class Character extends FlxSprite
 				scale.set(6, 6);
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'chipper';
@@ -84,15 +84,15 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
 				animation.addByPrefix('look', 'look', 24, false);
 				animation.addByPrefix('talk', 'talk', 24, false);
-		
+
 				addOffset('idle');
-				addOffset("singUP",0,90);
-				addOffset("singRIGHT",-120);
-				addOffset("singLEFT",70,10);
+				addOffset("singUP", 0, 90);
+				addOffset("singRIGHT", -120);
+				addOffset("singLEFT", 70, 10);
 				addOffset("singDOWN");
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'dambu';
@@ -109,15 +109,15 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
 				animation.addByPrefix('look', 'look', 24, false);
 				animation.addByPrefix('talk', 'talk', 24, false);
-		
+
 				addOffset('idle');
-				addOffset("singUP",0,90);
-				addOffset("singRIGHT",-120);
-				addOffset("singLEFT",70,10);
+				addOffset("singUP", 0, 90);
+				addOffset("singRIGHT", -120);
+				addOffset("singLEFT", 70, 10);
 				addOffset("singDOWN");
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'dambai';
@@ -132,7 +132,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'left'.toLowerCase(), 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN'.toLowerCase(), 24, false);
 				animation.addByPrefix('singLEFT', 'right'.toLowerCase(), 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -140,7 +140,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'sammy';
@@ -155,7 +155,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24, false);
 				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24, false);
 				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -163,7 +163,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'bambop';
@@ -178,7 +178,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -188,7 +188,7 @@ class Character extends FlxSprite
 				antialiasing = false;
 				scale.set(0.85, 0.85);
 				updateHitbox();
-		
+
 				playAnim('idle');
 
 				iconName = '3d-tristan';
@@ -203,7 +203,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'BlogblezRight', 24, false);
 				animation.addByPrefix('singDOWN', 'BlogblezDown', 24, false);
 				animation.addByPrefix('singLEFT', 'BlogblezLeft', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 104 * 0.75, 111 * 0.75);
 				addOffset("singRIGHT", -40 * 0.75, -60 * 0.75);
@@ -213,7 +213,7 @@ class Character extends FlxSprite
 				scale.set(0.75, 0.75);
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'blogblez';
@@ -228,13 +228,13 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 21 * 0.9, 98 * 0.9);
 				addOffset("singRIGHT", -30 * 0.9, -12 * 0.9);
 				addOffset("singLEFT", 100 * 0.9, 15 * 0.9);
 				addOffset("singDOWN", -10 * 0.9, -10 * 0.9);
-		
+
 				playAnim('idle');
 
 				scale.set(0.9, 0.9);
@@ -256,7 +256,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT-alt', 'screaming right', 24, false);
 				animation.addByPrefix('singDOWN-alt', 'screaming down', 24, false);
 				animation.addByPrefix('singLEFT-alt', 'screaming left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 0, 690);
 				addOffset("singRIGHT", -120, 70);
@@ -266,7 +266,7 @@ class Character extends FlxSprite
 				addOffset("singRIGHT-alt", 480, 280);
 				addOffset("singLEFT-alt", 1330, 425);
 				addOffset("singDOWN-alt", 530, 200);
-		
+
 				playAnim('idle');
 
 				iconName = 'awesome-son';
@@ -282,23 +282,23 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'left', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'right', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				flipX = !flipX;
 
 				iconName = 'do-you-accept-player';
-				
+
 				iconRPC = 'icon_dya';
 			case 'diamond-man-mugen':
 				tex = Paths.getSparrowAtlas('characters/diamondmugen');
@@ -309,7 +309,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle', 0, 270);
 				addOffset('idle-alt', 35, 328);
 				addOffset("singUP", 169, 280);
@@ -320,7 +320,7 @@ class Character extends FlxSprite
 				scale.set(1.2, 1.2);
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'diamond';
@@ -335,17 +335,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('danceRight');
 
 				iconName = 'garrett-animal';
@@ -359,17 +359,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'do-you-accept';
@@ -383,13 +383,13 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'dad sing note right', 24, false);
 				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24, false);
 				animation.addByPrefix('singRIGHT', 'Dad Sing Note LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", -7, 45);
 				addOffset("singRIGHT", -2, 21);
 				addOffset("singLEFT", -9, 5);
 				addOffset("singDOWN", 2, -32);
-		
+
 				playAnim('idle');
 
 				iconName = 'prealpha';
@@ -403,17 +403,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'garrett-animal';
@@ -427,7 +427,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", -26 * 3, 64 * 3);
 				addOffset("singRIGHT", 3 * 3, -7 * 3);
@@ -437,7 +437,7 @@ class Character extends FlxSprite
 				scale.set(3, 3);
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'mr-music';
@@ -451,17 +451,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'wizard';
@@ -475,17 +475,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", -50, -50);
 				addOffset("singRIGHT", 25, 21);
 				addOffset("singLEFT", -32, -38);
 				addOffset("singDOWN", 39, 97);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'shitter';
@@ -494,26 +494,26 @@ class Character extends FlxSprite
 			case 'bamb-root':
 				tex = Paths.getSparrowAtlas('characters/root_bamber');
 				frames = tex;
-				//animation.addByPrefix('idle', 'IDLE', 24, false);
+				// animation.addByPrefix('idle', 'IDLE', 24, false);
 				animation.addByIndices('danceLeft', 'IDLE'.toLowerCase(), [for (i in 0...13) i], "", 24, false);
 				animation.addByIndices('danceRight', 'IDLE'.toLowerCase(), [for (i in 13...25) i], "", 24, false);
 				animation.addByPrefix('singUP', 'UP'.toLowerCase(), 24, false);
 				animation.addByPrefix('singRIGHT', 'RIGHT'.toLowerCase(), 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN'.toLowerCase(), 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
 
-				//nativelyPlayable = true;
-		
+				// nativelyPlayable = true;
+
 				playAnim('danceLeft');
 
 				iconName = 'bambroot';
@@ -527,7 +527,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -537,7 +537,7 @@ class Character extends FlxSprite
 				scale.set(0.51, 0.51);
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'garrett-animal';
@@ -575,17 +575,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", -237, 106);
 				addOffset("singRIGHT", -260, -40);
 				addOffset("singLEFT", 362, -56);
 				addOffset("singDOWN", -180, -240);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'paloose-men';
@@ -601,7 +601,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('danceLeft', -614, -360);
 				addOffset('danceRight', -614, -360);
 				addOffset("singUP", -614, -360);
@@ -610,10 +610,10 @@ class Character extends FlxSprite
 				addOffset("singDOWN", -614, -360);
 				addOffset('friend');
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('friend');
 
 				iconName = 'playtime-2';
@@ -628,7 +628,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('danceLeft');
 				addOffset('danceRight');
 				addOffset("singUP");
@@ -636,10 +636,10 @@ class Character extends FlxSprite
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('danceRight');
 
 				iconName = 'garrett-animal';
@@ -654,17 +654,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('danceRight');
 
 				iconName = 'future';
@@ -834,7 +834,7 @@ class Character extends FlxSprite
 
 				nativelyPlayable = true;
 
-				//wtf
+				// wtf
 				antialiasing = false;
 
 				iconName = '3d-bf';
@@ -1084,12 +1084,13 @@ class Character extends FlxSprite
 				flipX = true;
 
 				antialiasing = false;
-				
+
 				iconName = 'first-dave';
 			case 'bandu-scaredy':
 				frames = Paths.getSparrowAtlas('characters/bandu_scaredy');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 				animation.addByPrefix('hey', 'creaming', 24, false);
@@ -1116,7 +1117,8 @@ class Character extends FlxSprite
 			case 'bandu-card':
 				frames = Paths.getSparrowAtlas('characters/card_bandu');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1128,7 +1130,7 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				scale.set(1.35, 1.35);
@@ -1143,7 +1145,8 @@ class Character extends FlxSprite
 				frames = Paths.getSparrowAtlas('characters/live_bandu_reaction');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
 				animation.addByPrefix('scream', 'SCREAM', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1181,7 +1184,7 @@ class Character extends FlxSprite
 				addOffset('singUP');
 				addOffset('singRIGHT');
 
-				if(isPlayer)
+				if (isPlayer)
 				{
 					iconName = 'awesomePlayer';
 				}
@@ -1196,7 +1199,8 @@ class Character extends FlxSprite
 			case 'doll':
 				frames = Paths.getSparrowAtlas('characters/bandoll');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1208,7 +1212,7 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				iconName = 'doll';
@@ -1219,11 +1223,13 @@ class Character extends FlxSprite
 			case 'swanki':
 				frames = Paths.getSparrowAtlas('characters/swanki');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim + '0', 24, false);
 				}
 
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}-hold', anim + ' HOLD', 24, false);
 				}
 
@@ -1239,7 +1245,7 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				iconName = 'smartass';
@@ -1250,7 +1256,8 @@ class Character extends FlxSprite
 			case 'doll-alt':
 				frames = Paths.getSparrowAtlas('characters/bandoll_lightsoff');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1262,7 +1269,7 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				iconName = 'doll';
@@ -1291,7 +1298,7 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
-				iconName = 'playrobot'; 
+				iconName = 'playrobot';
 				iconRPC = 'icon_playrobot';
 			case 'playrobot-crazy':
 				frames = Paths.getSparrowAtlas('characters/ohshit');
@@ -1320,7 +1327,8 @@ class Character extends FlxSprite
 			case 'hall-monitor':
 				frames = Paths.getSparrowAtlas('characters/HALL_MONITOR');
 				animation.addByPrefix('idle', 'gdj', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1342,7 +1350,8 @@ class Character extends FlxSprite
 			case 'diamond-man':
 				frames = Paths.getSparrowAtlas('characters/diamondMan');
 				animation.addByPrefix('idle', 'idle', 24, true);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1365,7 +1374,8 @@ class Character extends FlxSprite
 			case 'too-shiny':
 				frames = Paths.getSparrowAtlas('characters/diamondswag');
 				animation.addByPrefix('idle', 'diamond idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', 'diamond ' + anim, 24, false);
 				}
 
@@ -1386,7 +1396,8 @@ class Character extends FlxSprite
 				frames = Paths.getSparrowAtlas('characters/cool');
 				animation.addByIndices('danceLeft', 'idle', [0, 1, 2, 3, 4, 5, 6], '', 24, false);
 				animation.addByIndices('danceRight', 'idle', [7, 8, 9, 10, 11, 12, 13], '', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1404,13 +1415,14 @@ class Character extends FlxSprite
 				playAnim('danceRight');
 
 				iconName = 'wheels';
-				
+
 				iconRPC = 'icon_wheels';
 			case 'wtf-lmao':
 				frames = Paths.getSparrowAtlas('characters/what_the_fuck');
 				animation.addByPrefix('danceLeft', 'DL', 24, false);
 				animation.addByPrefix('danceRight', 'DR', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1433,7 +1445,8 @@ class Character extends FlxSprite
 			case 'cock-cream':
 				frames = Paths.getSparrowAtlas('characters/cock_cream');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1455,7 +1468,8 @@ class Character extends FlxSprite
 			case 'epic':
 				frames = Paths.getSparrowAtlas('characters/epic');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1477,7 +1491,8 @@ class Character extends FlxSprite
 			case 'bormp':
 				frames = Paths.getSparrowAtlas('characters/awesome_bambi');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1497,12 +1512,14 @@ class Character extends FlxSprite
 			case 'crazed':
 				frames = Paths.getSparrowAtlas('characters/crazyDave');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
 				animation.addByPrefix('idle-alt', 'mad idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}-alt', 'mad ' + anim, 24, false);
 				}
 
@@ -1529,7 +1546,8 @@ class Character extends FlxSprite
 				frames = Paths.getSparrowAtlas('characters/david');
 				animation.addByIndices('danceRight', 'IDLE', [0, 1, 2, 3, 4, 5, 6, 7], '', 24, false);
 				animation.addByIndices('danceLeft', 'IDLE', [8, 9, 10, 11, 12, 13], '', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1542,7 +1560,7 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				playAnim('danceRight');
@@ -1553,7 +1571,8 @@ class Character extends FlxSprite
 			case 'badrum':
 				frames = Paths.getSparrowAtlas('characters/badrum');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1644,15 +1663,15 @@ class Character extends FlxSprite
 				scale.set(1.9, 1.9);
 				antialiasing = false;
 				updateHitbox();
-				
-				
+
 				playAnim('idle');
 
 				iconName = 'gf';
 			case 'ringi':
 				frames = Paths.getSparrowAtlas('characters/ringi');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1662,7 +1681,7 @@ class Character extends FlxSprite
 				addOffset('singUP');
 				addOffset('singRIGHT');
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -1675,7 +1694,8 @@ class Character extends FlxSprite
 			case 'bambom':
 				frames = Paths.getSparrowAtlas('characters/bambom');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1687,7 +1707,7 @@ class Character extends FlxSprite
 
 				furiosityScale = 0.75;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -1700,7 +1720,8 @@ class Character extends FlxSprite
 			case 'gary':
 				frames = Paths.getSparrowAtlas('characters/gary');
 				animation.addByPrefix('idle', 'Idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1710,7 +1731,7 @@ class Character extends FlxSprite
 				addOffset('singUP', 22, -57);
 				addOffset('singRIGHT', 25, -92);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -1723,7 +1744,8 @@ class Character extends FlxSprite
 			case 'bendu':
 				frames = Paths.getSparrowAtlas('characters/bendu');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1733,7 +1755,7 @@ class Character extends FlxSprite
 				addOffset('singUP');
 				addOffset('singRIGHT');
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -1746,7 +1768,8 @@ class Character extends FlxSprite
 			case 'jeff':
 				frames = Paths.getSparrowAtlas('characters/jeff');
 				animation.addByPrefix('idle', 'Idle', 24, false);
-				for (anim in ['Down', 'Up', 'Right']) {
+				for (anim in ['Down', 'Up', 'Right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 				animation.addByPrefix('singLEFT', 'Lefty', 24, false);
@@ -1765,7 +1788,8 @@ class Character extends FlxSprite
 			case 'dave-png':
 				frames = Paths.getSparrowAtlas('characters/dave-png');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1781,7 +1805,8 @@ class Character extends FlxSprite
 			case 'brob':
 				frames = Paths.getSparrowAtlas('characters/brobgonal');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1807,16 +1832,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'barbu';
@@ -1832,16 +1857,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'disability';
@@ -1857,16 +1882,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 1, -28);
 				addOffset("singRIGHT", 30);
 				addOffset("singLEFT", -40, -5);
 				addOffset("singDOWN", 0, 27);
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'disability';
@@ -1883,7 +1908,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('cutscene', 'CUTSCENE', 24, false);
 				animation.addByPrefix('singFUCK', 'FUCK', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 69, -30);
 				addOffset("singRIGHT", 10, -36);
@@ -1892,14 +1917,14 @@ class Character extends FlxSprite
 				addOffset("cutscene", 0, -10);
 				addOffset('singFUCK', -218, -98);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
 
 				iconName = 'bandu-origin';
 
 				iconRPC = 'icon_bandu';
-		
+
 				playAnim('idle');
 
 			case 'RECOVERED_PROJECT':
@@ -1910,16 +1935,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'recovered';
@@ -1934,16 +1959,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'corrupt';
@@ -1958,16 +1983,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'dale';
@@ -1982,16 +2007,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT'.toLowerCase(), 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN'.toLowerCase(), 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'dingle';
@@ -2006,22 +2031,22 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT-alt', 'RIGHT'.toLowerCase(), 24, false);
 				animation.addByPrefix('singDOWN-alt', 'DOWN'.toLowerCase(), 24, false);
 				animation.addByPrefix('singLEFT-alt', 'LEFT'.toLowerCase(), 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP-alt");
 				addOffset("singRIGHT-alt");
 				addOffset("singLEFT-alt");
 				addOffset("singDOWN-alt");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'donk';
 
 				iconRPC = 'icon_donk';
-	
+
 			case 'cell':
 				tex = Paths.getSparrowAtlas('characters/Cell');
 				frames = tex;
@@ -2030,7 +2055,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Right', 24, false);
 				animation.addByPrefix('singDOWN', 'Down', 24, false);
 				animation.addByPrefix('singLEFT', 'Left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 0, 160);
 				addOffset("singRIGHT", -70, -70);
@@ -2038,7 +2063,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 41, -60);
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'cell';
@@ -2053,7 +2078,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Right', 24, false);
 				animation.addByPrefix('singDOWN', 'Down', 24, false);
 				animation.addByPrefix('singLEFT', 'Left', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 210, 150);
 				addOffset("singRIGHT", 200, -110);
@@ -2061,13 +2086,13 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 410, -390);
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'cellangry';
 
 				iconRPC = 'icon_cell';
-			
+
 			case 'froing':
 				tex = Paths.getSparrowAtlas('characters/froing');
 				frames = tex;
@@ -2076,20 +2101,20 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT'.toLowerCase(), 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN'.toLowerCase(), 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
 
 				flipX = !flipX;
-				
+
 				nativelyPlayable = true;
-		
+
 				playAnim('idle');
 
 				iconName = 'froing';
@@ -2102,17 +2127,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", -26, 84);
 				addOffset("singRIGHT", -10, 240);
 				addOffset("singLEFT", 60, 84);
 				addOffset("singDOWN", -26, -24);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'cheaty';
@@ -2127,17 +2152,17 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 8, 55);
 				addOffset("singRIGHT", 23, -4);
 				addOffset("singLEFT", 2, 3);
 				addOffset("singDOWN", 15, 30);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'cheaty';
@@ -2152,16 +2177,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 163, 230);
 				addOffset("singRIGHT", 107, 229);
 				addOffset("singLEFT", 210, -225);
 				addOffset("singDOWN", 1, -673);
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'butch';
@@ -2178,7 +2203,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('boo', 'BOO', 24, false);
 				animation.addByPrefix('hah', 'HAH', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 100, 294);
 				addOffset("singRIGHT", 13, -136);
@@ -2186,10 +2211,10 @@ class Character extends FlxSprite
 				addOffset("singDOWN", -5, -39);
 				addOffset("boo", -37, -126);
 				addOffset("hah", 38, 24);
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'alge';
@@ -2204,16 +2229,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 439, 262);
 				addOffset("singRIGHT", 220, 450);
 				addOffset("singLEFT", 671, 111);
 				addOffset("singDOWN", 130, 81);
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'bad';
@@ -2228,16 +2253,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(765 * furiosityScale),Std.int(903 * furiosityScale));
+				setGraphicSize(Std.int(765 * furiosityScale), Std.int(903 * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'gunk';
@@ -2252,16 +2277,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(765 * furiosityScale),Std.int(903 * furiosityScale));
+				setGraphicSize(Std.int(765 * furiosityScale), Std.int(903 * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'gross';
@@ -2277,16 +2302,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'badai';
@@ -2302,16 +2327,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'badai';
@@ -2327,16 +2352,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'decdave';
@@ -2353,7 +2378,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('splode', 'SPLODE', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2361,10 +2386,10 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 				addOffset("splode");
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'decdave';
@@ -2381,7 +2406,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('stand', 'STAND', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2389,10 +2414,10 @@ class Character extends FlxSprite
 				addOffset("singDOWN", -82, -24);
 				addOffset("stand", -87, -29);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'og-dave';
@@ -2409,7 +2434,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('stand', 'STAND', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2417,10 +2442,10 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 				addOffset("stand", -156, -45);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'og-dave';
@@ -2438,7 +2463,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('stand', 'STAND', 24, false);
 				animation.addByPrefix('scared', 'SHOCKED', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT", -45, 3);
@@ -2449,10 +2474,10 @@ class Character extends FlxSprite
 
 				furiosityScale = 1.3;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'garrett';
@@ -2466,12 +2491,14 @@ class Character extends FlxSprite
 				frames = tex;
 				animation.addByIndices('danceLeft', 'idle', [for (i in 0...13) i], "", 24, false);
 				animation.addByIndices('danceRight', 'idle', [for (i in 13...23) i], "", 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
-				if (isPlayer) thing = -1;
-		
+				if (isPlayer)
+					thing = -1;
+
 				addOffset('danceLeft');
 				addOffset('danceRight');
 				addOffset("singUP", 10 * thing, 20 * thing);
@@ -2479,7 +2506,7 @@ class Character extends FlxSprite
 				addOffset("singLEFT", 30 * thing);
 				addOffset("singDOWN", 0, -10 * thing);
 				globaloffset[0] = 150;
-				globaloffset[1] = 450; //this is the y
+				globaloffset[1] = 450; // this is the y
 				setGraphicSize(Std.int(width / furiosityScale));
 				updateHitbox();
 				antialiasing = false;
@@ -2487,7 +2514,7 @@ class Character extends FlxSprite
 				iconName = 'disrupt';
 
 				iconRPC = 'icon_bambi_piss_3d';
-		
+
 				playAnim('danceRight');
 
 			case 'boxer':
@@ -2497,10 +2524,11 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('idle', 'IDLE', 24, false);
 
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2509,7 +2537,7 @@ class Character extends FlxSprite
 
 				furiosityScale = 1.75;
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -2517,7 +2545,7 @@ class Character extends FlxSprite
 				iconName = 'disrupt';
 
 				iconRPC = 'icon_piss_bambi_3d';
-		
+
 				playAnim('idle');
 
 			case 'gotta-sleep':
@@ -2527,17 +2555,18 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('idle', 'IDLE', 24, false);
 
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
-		
+
 				addOffset('idle');
 				addOffset("singUP", -33, 94);
 				addOffset("singRIGHT", 150, 100);
 				addOffset("singLEFT", 80, 30);
 				addOffset("singDOWN", 87, -60);
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -2545,18 +2574,18 @@ class Character extends FlxSprite
 				iconName = 'gotta';
 
 				iconRPC = 'icon_gotta';
-		
+
 				playAnim('idle');
 
 			case 'bandu':
 				frames = Paths.getSparrowAtlas('characters/bandu');
-				
+
 				animation.addByPrefix('idle', 'idle', 24, false);
 				animation.addByPrefix('singUP', 'up', 24, false);
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-				
+
 				animation.addByIndices('idle-alt', 'phones fall', [17], '', 24, false);
 				animation.addByPrefix('singUP-alt', 'sad up', 24, false);
 				animation.addByPrefix('singRIGHT-alt', 'sad right', 24, false);
@@ -2564,8 +2593,9 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT-alt', 'sad left', 24, false);
 
 				animation.addByIndices('NOOMYPHONES', 'phones fall', [0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17], '', 24, false);
-				
-				for (z in ['idle', 'singUP', 'singRIGHT', 'singLEFT', 'singDOWN', 'NOOMYPHNOES']) {
+
+				for (z in ['idle', 'singUP', 'singRIGHT', 'singLEFT', 'singDOWN', 'NOOMYPHNOES'])
+				{
 					addOffset(z, 0, 350 * 0.85);
 					addOffset('$z-alt', 0, 350 * 0.85);
 				}
@@ -2587,13 +2617,13 @@ class Character extends FlxSprite
 				tex = StolenFromTrickyMod.cachedInstance.fromSparrow('bandusad', 'characters/bandu_sad');
 
 				frames = tex;
-				
+
 				animation.addByPrefix('idle', 'phones fall', 24, false);
 				animation.addByPrefix('singUP', 'up', 24, false);
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
-				
+
 				animation.addByIndices('idle-alt', 'phones fall', [17], '', 24, false);
 				animation.addByPrefix('singUP-alt', 'sad up', 24, false);
 				animation.addByPrefix('singRIGHT-alt', 'sad right', 24, false);
@@ -2601,9 +2631,9 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT-alt', 'sad left', 24, false);
 
 				animation.addByIndices('NOOMYPHONES', 'phones fall', [0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17], '', 24, false);
-				
 
-				for (z in ['idle', 'singUP', 'singRIGHT', 'singLEFT', 'singDOWN', 'NOOMYPHNOES']) {
+				for (z in ['idle', 'singUP', 'singRIGHT', 'singLEFT', 'singDOWN', 'NOOMYPHNOES'])
+				{
 					addOffset(z, 0, 350 * 0.8);
 					addOffset('$z-alt', 0, 350 * 0.8);
 				}
@@ -2623,13 +2653,13 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'bandu-lullaby':
 				frames = Paths.getSparrowAtlas('characters/lullabandu');
-				
+
 				animation.addByPrefix('idle', 'IDLE', 24, false);
 				animation.addByPrefix('singUP', 'UP', 24, false);
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-				
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2651,13 +2681,13 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'dave-unchecked':
 				frames = Paths.getSparrowAtlas('characters/decimated_lullaby');
-				
+
 				animation.addByPrefix('idle', 'IDLE', 24, true);
 				animation.addByPrefix('singUP', 'UP', 24, false);
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-				
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2676,13 +2706,13 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'shoulder-3d-bf':
 				frames = Paths.getSparrowAtlas('characters/shoulder_3d_bf');
-				
+
 				animation.addByPrefix('idle', 'IDLE', 24, false);
 				animation.addByPrefix('singUP', 'UP', 24, false);
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-				
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -2705,7 +2735,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'bandu-candy':
 				frames = Paths.getSparrowAtlas('characters/bandu_crazy');
-				
+
 				animation.addByIndices('danceLeft', 'IDLE', [0, 1, 2, 3, 4, 5], '', 24, false);
 				animation.addByIndices('danceRight', 'IDLE', [9, 8, 7, 6, 5, 4], '', 24, false);
 				animation.addByPrefix('singUP', 'UP', 24, false);
@@ -2740,7 +2770,7 @@ class Character extends FlxSprite
 				playAnim('danceLeft');
 			case 'ticking':
 				frames = Paths.getSparrowAtlas('characters/ticking_dude');
-				
+
 				animation.addByPrefix('idle', 'IDLE'.toLowerCase(), 24, false);
 				animation.addByPrefix('singUP', 'UP'.toLowerCase(), 24, false);
 				animation.addByPrefix('singRIGHT', 'RIGHT'.toLowerCase(), 24, false);
@@ -2797,7 +2827,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
 				animation.addByPrefix('talk', 'TALK', 24, false);
-	
+
 				addOffset('idle');
 				addOffset("singUP", 64, 10);
 				addOffset("singRIGHT", 1, -2);
@@ -2826,7 +2856,7 @@ class Character extends FlxSprite
 
 				scale.set(1.5, 1);
 				updateHitbox();
-	
+
 				addOffset('idle');
 				addOffset("singUP", (64 * 1.5) * -1, 10);
 				addOffset("singLEFT", (1 * 1.5) * -1, -2);
@@ -2844,10 +2874,13 @@ class Character extends FlxSprite
 			case 'unfair-junker':
 				frames = Paths.getSparrowAtlas('characters/UNFAIR_GUY_FAICNG_FORWARD');
 				animation.addByPrefix('idle', 'idle', 48, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 48, false);
 				}
-				animation.addByIndices('inhale', 'INHALE', [0, 1, 2, 3, 4,0, 1, 2, 3, 4,0, 1, 2, 3, 4,0, 1, 2, 3, 4,0, 1, 2, 3, 4,0, 1, 2, 3, 4,0, 1, 2, 3, 4,0, 1, 2, 3, 4], '', 24, false);
+				animation.addByIndices('inhale', 'INHALE', [
+					0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4
+				], '', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP");
@@ -2856,7 +2889,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 				addOffset('inhale');
 				globaloffset[0] = 150 * 0.85;
-				globaloffset[1] = 450 * 0.85; //this is the y
+				globaloffset[1] = 450 * 0.85; // this is the y
 				setGraphicSize(Std.int((width * 0.85) / furiosityScale));
 				updateHitbox();
 				antialiasing = false;
@@ -2864,7 +2897,7 @@ class Character extends FlxSprite
 				iconName = 'unfair';
 
 				iconRPC = 'icon_unfair_junker';
-		
+
 				playAnim('idle');
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND');
@@ -2980,13 +3013,14 @@ class Character extends FlxSprite
 		}
 		dance();
 
-		if(isPlayer)
+		if (isPlayer)
 		{
 			flipX = !flipX;
 		}
 	}
 
-	public function addAnim(name:String, xmlName:String, framerate:Int = 24, loop:Bool = false) {
+	public function addAnim(name:String, xmlName:String, framerate:Int = 24, loop:Bool = false)
+	{
 		animation.addByPrefix(name, xmlName, framerate, loop);
 	}
 
@@ -3044,7 +3078,7 @@ class Character extends FlxSprite
 		curCamOffsetX = 0;
 		curCamOffsetY = 0;
 		var poopInPants:String = alt ? '-alt' : '';
-		if(curCharacter == 'crazed' && alt)
+		if (curCharacter == 'crazed' && alt)
 		{
 			poopInPants = '-alt';
 		}
@@ -3052,7 +3086,8 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-pixel' | 'gf-pixel-white' | 'bandu-candy' | 'bambi-piss-3d' | 'gf-only' | 'dave-wheels' | 'david' | 'future-dave' | 'garrett-animal' | 'playtime-2' | 'garrett-piss' | 'playrobot' | 'playrobot-crazy' | 'bamb-root' | 'wtf-lmao':
+				case 'gf' | 'gf-christmas' | 'gf-pixel' | 'gf-pixel-white' | 'bandu-candy' | 'bambi-piss-3d' | 'gf-only' | 'dave-wheels' | 'david' |
+					'future-dave' | 'garrett-animal' | 'playtime-2' | 'garrett-piss' | 'playrobot' | 'playrobot-crazy' | 'bamb-root' | 'wtf-lmao':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
@@ -3072,20 +3107,23 @@ class Character extends FlxSprite
 	{
 		if (animation.getByName(AnimName) == null)
 		{
-			//WHY THE FUCK WAS THIS TRACE HERE
-			//trace(AnimName);
-			return; //why wasn't this a thing in the first place
+			// WHY THE FUCK WAS THIS TRACE HERE
+			// trace(AnimName);
+			return; // why wasn't this a thing in the first place
 		}
-		if(AnimName.toLowerCase().startsWith('idle') && !canDance)
+		if (AnimName.toLowerCase().startsWith('idle') && !canDance)
 		{
 			return;
 		}
 
-		if(AnimName.toLowerCase().startsWith('sing') && !canSing){return;};
-
-		if(curCharacter != 'bandu' && curCharacter != '144p' && curCharacter != 'gotta-sleep')
+		if (AnimName.toLowerCase().startsWith('sing') && !canSing)
 		{
-			if(/*(isPlayer && !nativelyPlayable) || */(nativelyPlayable && !isPlayer))
+			return;
+		};
+
+		if (curCharacter != 'bandu' && curCharacter != '144p' && curCharacter != 'gotta-sleep')
+		{
+			if (/*(isPlayer && !nativelyPlayable) || */ (nativelyPlayable && !isPlayer))
 			{
 				switch (AnimName)
 				{
@@ -3127,11 +3165,10 @@ class Character extends FlxSprite
 						curCamOffsetY = 0;
 				}
 			}
-
 		}
 
 		animation.play(AnimName, Force, Reversed, Frame);
-	
+
 		var daOffset = animOffsets.get(AnimName);
 		if (animOffsets.exists(AnimName))
 		{
@@ -3146,7 +3183,7 @@ class Character extends FlxSprite
 		}
 		else
 			offset.set(0, 0);
-	
+
 		if (curCharacter == 'gf')
 		{
 			if (AnimName == 'singLEFT')
@@ -3157,7 +3194,7 @@ class Character extends FlxSprite
 			{
 				danced = false;
 			}
-	
+
 			if (AnimName == 'singUP' || AnimName == 'singDOWN')
 			{
 				danced = !danced;
@@ -3168,9 +3205,9 @@ class Character extends FlxSprite
 	public function addOffset(name:String, x:Float = 0, y:Float = 0)
 	{
 		/*var multiplier:Float = 1;
-		if((!isPlayer && nativelyPlayable) || (isPlayer && !nativelyPlayable))
-		{
-			multiplier = -1;
+			if((!isPlayer && nativelyPlayable) || (isPlayer && !nativelyPlayable))
+			{
+				multiplier = -1;
 		}*/
 		animOffsets[name] = [x /* * multiplier*/, y];
 	}

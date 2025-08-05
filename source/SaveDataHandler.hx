@@ -6,12 +6,12 @@ import flixel.FlxG;
 
 /**
  * handles options initialization
-*/
+ */
 class SaveDataHandler
 {
-    public static function initSave()
-    {
-        if (FlxG.save.data.newInput == null)
+	public static function initSave()
+	{
+		if (FlxG.save.data.newInput == null)
 			FlxG.save.data.newInput = true;
 
 		if (FlxG.save.data.downscroll == null)
@@ -23,20 +23,20 @@ class SaveDataHandler
 		if (FlxG.save.data.freeplayCuts == null)
 			FlxG.save.data.freeplayCuts = true;
 
-		if(FlxG.save.data.counterVis == null)
+		if (FlxG.save.data.counterVis == null)
 		{
 			FlxG.save.data.counterVis = true;
 		}
 
-		if(FlxG.save.data.oldAudio == null)
-        {
-            FlxG.save.data.oldAudio = false; 
-        }
+		if (FlxG.save.data.oldAudio == null)
+		{
+			FlxG.save.data.oldAudio = false;
+		}
 
-		if(FlxG.save.data.sensitiveContent == null)
-        {
-            FlxG.save.data.sensitiveContent = true; 
-        }
+		if (FlxG.save.data.sensitiveContent == null)
+		{
+			FlxG.save.data.sensitiveContent = true;
+		}
 
 		if (FlxG.save.data.accuracyDisplay == null)
 			FlxG.save.data.accuracyDisplay = true;
@@ -46,5 +46,5 @@ class SaveDataHandler
 
 		if (FlxG.save.data.donoteclick == null)
 			FlxG.save.data.donoteclick = false;
-    }
+	}
 }

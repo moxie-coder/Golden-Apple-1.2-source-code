@@ -36,7 +36,16 @@ class DialogueBox extends FlxSpriteGroup
 
 	public var finishThing:Void->Void;
 
-	public var noAa:Array<String> = ["dialogue/dave_furiosity", "dialogue/3d_bamb", "dialogue/unfairnessPortrait", 'dialogue/3d_bambi_disruption_portrait', 'dialogue/bandu_portrait', 'dialogue/3d_splitathon_dave_port', 'dialogue/3d_dave_wireframe_portrait', 'dialogue/3d_dave_og_portrait'];
+	public var noAa:Array<String> = [
+		"dialogue/dave_furiosity",
+		"dialogue/3d_bamb",
+		"dialogue/unfairnessPortrait",
+		'dialogue/3d_bambi_disruption_portrait',
+		'dialogue/bandu_portrait',
+		'dialogue/3d_splitathon_dave_port',
+		'dialogue/3d_dave_wireframe_portrait',
+		'dialogue/3d_dave_og_portrait'
+	];
 
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
@@ -57,7 +66,7 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		super();
 
-		if (FlxG.save.data.freeplayCuts) 
+		if (FlxG.save.data.freeplayCuts)
 		{
 			switch (PlayState.SONG.song.toLowerCase())
 			{
@@ -92,7 +101,7 @@ class DialogueBox extends FlxSpriteGroup
 		blackScreen.screenCenter();
 		blackScreen.alpha = 0;
 		add(blackScreen);
-		
+
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
@@ -118,7 +127,7 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		this.dialogueList = dialogueList;
-		
+
 		if (!hasDialog)
 			return;
 		var portraitLeftCharacter:String = '';
@@ -143,17 +152,17 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.scrollFactor.set();
 
 		var rightPortrait:Portrait = getPortrait(portraitRightCharacter);
-		
+
 		portraitRight.frames = Paths.getSparrowAtlas(rightPortrait.portraitPath);
 		portraitRight.animation.addByPrefix('enter', rightPortrait.portraitPrefix, 24, false);
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
-		
+
 		portraitRight.visible = false;
 
 		portraitLeft.setPosition(276.95, 170);
 		portraitLeft.visible = true;
-		
+
 		add(portraitLeft);
 		add(portraitRight);
 
@@ -170,7 +179,7 @@ class DialogueBox extends FlxSpriteGroup
 				dropText.font = 'Comic Sans MS Bold';
 				dropText.color = 0xFFFFFFFF;
 				add(dropText);
-			
+
 				swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
 				swagDialogue.font = 'Comic Sans MS Bold';
 				swagDialogue.color = 0xFF000000;
@@ -181,7 +190,7 @@ class DialogueBox extends FlxSpriteGroup
 				dropText.font = 'Comic Sans MS Bold';
 				dropText.color = 0xFF00137F;
 				add(dropText);
-		
+
 				swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
 				swagDialogue.font = 'Comic Sans MS Bold';
 				swagDialogue.color = 0xFF000000;
@@ -220,10 +229,10 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
-		if (FlxG.keys.justPressed.ANY  && dialogueStarted)
+		if (FlxG.keys.justPressed.ANY && dialogueStarted)
 		{
 			remove(dialogue);
-			
+
 			FlxG.sound.play(Paths.sound('textclickmodern'), 0.8);
 
 			if (dialogueList[1] == null && dialogueList[0] != null)
@@ -231,7 +240,7 @@ class DialogueBox extends FlxSpriteGroup
 				if (!isEnding)
 				{
 					isEnding = true;
-						
+
 					FlxG.sound.music.fadeOut(2.2, 0);
 
 					FlxTween.tween(box, {alpha: 0}, 1.2);
@@ -254,7 +263,7 @@ class DialogueBox extends FlxSpriteGroup
 				startDialogue();
 			}
 		}
-		
+
 		super.update(elapsed);
 	}
 
@@ -300,18 +309,18 @@ class DialogueBox extends FlxSpriteGroup
 			}
 			switch (curCharacter)
 			{
-				case 'dave' | 'bambi' | 'tristan' | 'insanityEndDave': //guys its the funny bambi character
-						portraitLeft.setPosition(220, 220);
-				case 'bf' | 'gf': //create boyfriend & genderbent boyfriend
+				case 'dave' | 'bambi' | 'tristan' | 'insanityEndDave': // guys its the funny bambi character
+					portraitLeft.setPosition(220, 220);
+				case 'bf' | 'gf': // create boyfriend & genderbent boyfriend
 					portraitRight.setPosition(570, 220);
 			}
 			box.flipX = portraitLeft.visible;
 			portraitLeft.x -= 150;
-			//portraitRight.x += 100;
+			// portraitRight.x += 100;
 			portraitLeft.antialiasing = !noAa.contains(portrait.portraitPath);
 			portraitRight.antialiasing = true;
-			portraitLeft.animation.play('enter',true);
-			portraitRight.animation.play('enter',true);
+			portraitLeft.animation.play('enter', true);
+			portraitRight.animation.play('enter', true);
 		}
 		else
 		{
@@ -327,9 +336,10 @@ class DialogueBox extends FlxSpriteGroup
 				dropText.font = Paths.font("barcode.ttf");
 				swagDialogue.font = Paths.font("barcode.ttf");
 			case 'to_black':
-				FlxTween.tween(blackScreen, {alpha:1}, 0.25);
+				FlxTween.tween(blackScreen, {alpha: 1}, 0.25);
 		}
 	}
+
 	function getPortrait(character:String):Portrait
 	{
 		var portrait:Portrait = new Portrait('', '', '', true);
@@ -398,13 +408,15 @@ class DialogueBox extends FlxSpriteGroup
 		dialogueList[0] = dialogueList[0].substr(splitName[1].length + splitName[0].length + 2).trim();
 	}
 }
+
 class Portrait
 {
 	public var portraitPath:String;
 	public var portraitLibraryPath:String = '';
 	public var portraitPrefix:String;
 	public var left:Bool;
-	public function new (portraitPath:String, portraitLibraryPath:String = '', portraitPrefix:String, left:Bool)
+
+	public function new(portraitPath:String, portraitLibraryPath:String = '', portraitPrefix:String, left:Bool)
 	{
 		this.portraitPath = portraitPath;
 		this.portraitLibraryPath = portraitLibraryPath;

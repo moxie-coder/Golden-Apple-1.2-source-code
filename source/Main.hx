@@ -83,10 +83,10 @@ class Main extends Sprite
 
 		// no
 		/*
-		memoryCounter = new MemoryCounter(10, fpsCounter.y + 13, 0xffffff);
-		memoryCounter.defaultTextFormat = new TextFormat("Comic Sans MS Bold", 14, 0xFFFFFF, true);
-		addChild(memoryCounter);
-		*/
+			memoryCounter = new MemoryCounter(10, fpsCounter.y + 13, 0xffffff);
+			memoryCounter.defaultTextFormat = new TextFormat("Comic Sans MS Bold", 14, 0xFFFFFF, true);
+			addChild(memoryCounter);
+		 */
 		#end
 	}
 
@@ -96,7 +96,7 @@ class Main extends Sprite
 
 	public static function dumpCache()
 	{
-		if(!FlxG.save.data.preloadAtAll)
+		if (!FlxG.save.data.preloadAtAll)
 		{
 			Assets.cache.clear();
 		}
@@ -104,18 +104,18 @@ class Main extends Sprite
 
 	public static function toggleCounterVisible(status:Bool = true)
 	{
-		switch(status)
+		switch (status)
 		{
 			case false:
-			{
-				fpsCounter.visible = false;
-				//memoryCounter.visible = false;
-			}
+				{
+					fpsCounter.visible = false;
+					// memoryCounter.visible = false;
+				}
 			default:
-			{
-				fpsCounter.visible = true;
-				//memoryCounter.visible = true;
-			}
+				{
+					fpsCounter.visible = true;
+					// memoryCounter.visible = true;
+				}
 		}
 	}
 }

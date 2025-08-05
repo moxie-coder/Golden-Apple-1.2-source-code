@@ -33,19 +33,18 @@ class MusicBeatState extends FlxUIState
 		#end
 	}
 
-
 	override function update(elapsed:Float)
 	{
 		if (FlxG.keys.justPressed.ONE)
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
-		if(FlxG.keys.justPressed.TWO)
+		if (FlxG.keys.justPressed.TWO)
 		{
 			FlxG.mouse.visible = !FlxG.mouse.visible;
 		}
 
-		//everyStep();
+		// everyStep();
 		var oldStep:Int = curStep;
 
 		updateCurStep();
@@ -86,6 +85,6 @@ class MusicBeatState extends FlxUIState
 
 	public function beatHit():Void
 	{
-		//do literally nothing dumbass
+		// do literally nothing dumbass
 	}
 }

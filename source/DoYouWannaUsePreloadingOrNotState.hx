@@ -30,18 +30,16 @@ using StringTools;
 
 class DoYouWannaUsePreloadingOrNotState extends MusicBeatState
 {
-    var transitioning:Bool = false;
+	var transitioning:Bool = false;
 
 	override public function create():Void
 	{
-        super.create();
-        var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		super.create();
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 		var txt:FlxText = null;
 
-		txt = new FlxText(0, 0, FlxG.width,
-				"Hello!\nThis mod has a preloading system.\nPress Y to enable it, or press N to disable it.",
-				32);
+		txt = new FlxText(0, 0, FlxG.width, "Hello!\nThis mod has a preloading system.\nPress Y to enable it, or press N to disable it.", 32);
 		txt.setFormat("Comic Sans MS Bold", 32, FlxColor.WHITE, CENTER);
 		txt.screenCenter();
 		txt.antialiasing = true;
@@ -50,22 +48,22 @@ class DoYouWannaUsePreloadingOrNotState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-        if(FlxG.keys.justPressed.Y && !transitioning)
-        {
-            transitioning = true;
-            FlxG.save.data.preloadAtStartup = true;
+		if (FlxG.keys.justPressed.Y && !transitioning)
+		{
+			transitioning = true;
+			FlxG.save.data.preloadAtStartup = true;
 			FlxG.save.data.preloadAtAll = true;
 			FlxG.save.flush();
-            FlxG.switchState(new StartupState());
-        }
-        else if(FlxG.keys.justPressed.N && !transitioning)
-        {
-            transitioning = true;
+			FlxG.switchState(new StartupState());
+		}
+		else if (FlxG.keys.justPressed.N && !transitioning)
+		{
+			transitioning = true;
 			FlxG.save.data.preloadAtStartup = false;
 			FlxG.save.data.preloadAtAll = false;
 			FlxG.save.flush();
-            FlxG.switchState(new StartupState());
-        }
+			FlxG.switchState(new StartupState());
+		}
 
 		super.update(elapsed);
 	}

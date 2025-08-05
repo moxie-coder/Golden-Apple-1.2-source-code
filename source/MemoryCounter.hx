@@ -9,14 +9,14 @@ import openfl.text.TextFormat;
  * FPS class extension to display memory usage.
  * @author Kirill Poletaev
  */
-
 class MemoryCounter extends TextField
 {
 	private var times:Array<Float>;
 	private var memPeak:Float = 0;
-    public var showPeak:Bool = false;
-	
-	public function new(inX:Float = 10.0, inY:Float = 10.0, inCol:Int = 0x000000) 
+
+	public var showPeak:Bool = false;
+
+	public function new(inX:Float = 10.0, inY:Float = 10.0, inCol:Int = 0x000000)
 	{
 		super();
 
@@ -31,49 +31,50 @@ class MemoryCounter extends TextField
 	}
 
 	private function onEnter(_)
-	{	
-        var isGb:Bool = false;
-	    var mem:Float = Math.round(System.totalMemory / 1024 / 1024 * 100)/100;
+	{
+		var isGb:Bool = false;
+		var mem:Float = Math.round(System.totalMemory / 1024 / 1024 * 100) / 100;
 
-		if (mem > memPeak) memPeak = mem;
+		if (mem > memPeak)
+			memPeak = mem;
 
-        if(mem >= 1000)
-        {
-            mem /= 1000;
-            mem = Math.round(mem);
-            isGb = true;
-        }
-        else
-        {
-            mem = Std.int(mem);
-        }
+		if (mem >= 1000)
+		{
+			mem /= 1000;
+			mem = Math.round(mem);
+			isGb = true;
+		}
+		else
+		{
+			mem = Std.int(mem);
+		}
 
-        memPeak = Std.int(memPeak);
+		memPeak = Std.int(memPeak);
 
 		if (visible)
 		{
-            if(isGb)
-            {
-                if(showPeak)
-                {
-                    text = "\nRAM Used: " + mem + " GB\nRAM Use peak: " + memPeak + " MB";	
-                }
-                else
-                {
-                    text = "\nRAM Used: " + mem + " GB";	
-                }
-            }
-            else
-            {
-                if(showPeak)
-                {
-                    text = "\nRAM Used: " + mem + " MB\nRAM Use peak: " + memPeak + " MB";	
-                }
-                else
-                {
-                    text = "\nRAM Used: " + mem + " MB";	
-                }
-            }
+			if (isGb)
+			{
+				if (showPeak)
+				{
+					text = "\nRAM Used: " + mem + " GB\nRAM Use peak: " + memPeak + " MB";
+				}
+				else
+				{
+					text = "\nRAM Used: " + mem + " GB";
+				}
+			}
+			else
+			{
+				if (showPeak)
+				{
+					text = "\nRAM Used: " + mem + " MB\nRAM Use peak: " + memPeak + " MB";
+				}
+				else
+				{
+					text = "\nRAM Used: " + mem + " MB";
+				}
+			}
 		}
 	}
 }

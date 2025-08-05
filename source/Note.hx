@@ -56,13 +56,90 @@ class Note extends FlxSprite
 
 	var fuckerStyle:String = 'normal';
 
-    public static var CharactersWith3D:Array<String> = ['bambi-unfair', 'bambi-piss-3d', 'bandu', 'tunnel-dave', 'badai', 'unfair-junker', 'og-dave', 'split-dave-3d', 'garrett', 'og-dave-angey', '3d-bf', 'bandu-candy', 'bandu-scaredy', 'sart-producer', 'ringi', 'bambom', 'bendu', 'diamond-man', 'sart-producer-night', 'bandu-origin', 'RECOVERED_PROJECT', 'RECOVERED_PROJECT_2', 'RECOVERED_PROJECT_3', 'hall-monitor', 'playrobot', 'playrobot-crazy', 'gary', 'david', 'brob', 'butch', 'bad', 'eww-bf', 'dingle', 'froing', 'doll', 'dale', 'robot-guy', 'batai', 'boxer', 'gotta-sleep', 'garrett-animal', 'playtime-2', 'wizard', 'do-you-accept', 'garrett-piss', 'car', 'do-you-accept-player', 'mr-music', 'paloose-men', 'diamond-man-mugen', 'insanidave', 'alge', 'butch', 'bad', 'hover-dude', 'bamb-root', 'shoulder-3d-bf', 'bandu-lullaby', 'dave-unchecked', 'bandu-card', 'cell', 'corrupt-file', 'cell-mad', 'ticking', 'among', 'swanki', 'badrum', 'cock-cream', 'wtf-lmao', '3d-tristan', 'dambu', 'dambai', 'facecam', 'blogblez', 'too-shiny'];
+	public static var CharactersWith3D:Array<String> = [
+		'bambi-unfair',
+		'bambi-piss-3d',
+		'bandu',
+		'tunnel-dave',
+		'badai',
+		'unfair-junker',
+		'og-dave',
+		'split-dave-3d',
+		'garrett',
+		'og-dave-angey',
+		'3d-bf',
+		'bandu-candy',
+		'bandu-scaredy',
+		'sart-producer',
+		'ringi',
+		'bambom',
+		'bendu',
+		'diamond-man',
+		'sart-producer-night',
+		'bandu-origin',
+		'RECOVERED_PROJECT',
+		'RECOVERED_PROJECT_2',
+		'RECOVERED_PROJECT_3',
+		'hall-monitor',
+		'playrobot',
+		'playrobot-crazy',
+		'gary',
+		'david',
+		'brob',
+		'butch',
+		'bad',
+		'eww-bf',
+		'dingle',
+		'froing',
+		'doll',
+		'dale',
+		'robot-guy',
+		'batai',
+		'boxer',
+		'gotta-sleep',
+		'garrett-animal',
+		'playtime-2',
+		'wizard',
+		'do-you-accept',
+		'garrett-piss',
+		'car',
+		'do-you-accept-player',
+		'mr-music',
+		'paloose-men',
+		'diamond-man-mugen',
+		'insanidave',
+		'alge',
+		'butch',
+		'bad',
+		'hover-dude',
+		'bamb-root',
+		'shoulder-3d-bf',
+		'bandu-lullaby',
+		'dave-unchecked',
+		'bandu-card',
+		'cell',
+		'corrupt-file',
+		'cell-mad',
+		'ticking',
+		'among',
+		'swanki',
+		'badrum',
+		'cock-cream',
+		'wtf-lmao',
+		'3d-tristan',
+		'dambu',
+		'dambai',
+		'facecam',
+		'blogblez',
+		'too-shiny'
+	];
 
 	public var rating:String = "shit";
 
 	public var alt = false;
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?musthit:Bool = true, noteStyle:String = "normal") //had to add a new variable to this because FNF dumb
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?musthit:Bool = true,
+			noteStyle:String = "normal") // had to add a new variable to this because FNF dumb
 	{
 		super();
 
@@ -77,7 +154,7 @@ class Note extends FlxSprite
 		y -= 2000;
 		this.strumTime = strumTime + FlxG.save.data.offset;
 
-		if (this.strumTime < 0 )
+		if (this.strumTime < 0)
 			this.strumTime = 0;
 
 		this.noteData = noteData;
@@ -85,7 +162,7 @@ class Note extends FlxSprite
 
 		var daStage:String = PlayState.curStage;
 
-		if(noteStyle == 'magic')
+		if (noteStyle == 'magic')
 		{
 			frames = Paths.getSparrowAtlas('funnyAnimal/magicNote');
 
@@ -105,7 +182,7 @@ class Note extends FlxSprite
 
 			wizNote = true;
 		}
-		else if(noteStyle == 'police')
+		else if (noteStyle == 'police')
 		{
 			frames = Paths.getSparrowAtlas('funnyAnimal/palooseNote');
 
@@ -125,54 +202,36 @@ class Note extends FlxSprite
 
 			palooseNote = true;
 		}
-		else if (noteStyle == 'bevel') {
+		else if (noteStyle == 'bevel')
+		{
 			loadGraphic(Paths.image('BEVEL_NOTES'), true, 17 * 2, 17 * 2);
-			
+
 			animation.add('greenScroll', [6]);
 			animation.add('redScroll', [7]);
 			animation.add('blueScroll', [5]);
 			animation.add('purpleScroll', [4]);
-			
+
 			if (isSustainNote)
 			{
 				makeGraphic(7 * 2, 6 * 2);
 
-				color = switch (noteData){
-					case 0:	FlxColor.PURPLE;
-					case 1:	FlxColor.BLUE;
-					case 2:	FlxColor.GREEN;
+				color = switch (noteData)
+				{
+					case 0: FlxColor.PURPLE;
+					case 1: FlxColor.BLUE;
+					case 2: FlxColor.GREEN;
 					case 3: FlxColor.RED;
 					default: 0xff000000;
 				}
 			}
-			
+
 			setGraphicSize(Std.int(width * (PlayState.daPixelZoom / 2)));
 			updateHitbox();
 			antialiasing = false;
 
 			is3dNote = true;
 		}
-		else if (noteStyle == '3d') {
-			frames = Paths.getSparrowAtlas('NOTE_assets_3D');
-
-			animation.addByPrefix('greenScroll', 'green0');
-			animation.addByPrefix('redScroll', 'red0');
-			animation.addByPrefix('blueScroll', 'blue0');
-			animation.addByPrefix('purpleScroll', 'purple0');
-
-			animation.addByPrefix('purpleholdend', 'pruple end hold');
-			animation.addByPrefix('greenholdend', 'green hold end');
-			animation.addByPrefix('redholdend', 'red hold end');
-			animation.addByPrefix('blueholdend', 'blue hold end');
-
-			animation.addByPrefix('purplehold', 'purple hold piece');
-			animation.addByPrefix('greenhold', 'green hold piece');
-			animation.addByPrefix('redhold', 'red hold piece');
-			animation.addByPrefix('bluehold', 'blue hold piece');
-
-			is3dNote = true;
-		}
-		else if (((CharactersWith3D.contains(PlayState.dadChar) && !musthit) || (CharactersWith3D.contains(PlayState.bfChar) && musthit)) || ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1)) && ((this.strumTime / 50) % 20 > 10) && !sustainNote))
+		else if (noteStyle == '3d')
 		{
 			frames = Paths.getSparrowAtlas('NOTE_assets_3D');
 
@@ -193,7 +252,31 @@ class Note extends FlxSprite
 
 			is3dNote = true;
 		}
-		else if(PlayState.awesomeChars.contains(PlayState.dadChar) || (PlayState.awesomeChars.contains(PlayState.bfChar) && musthit))
+		else if (((CharactersWith3D.contains(PlayState.dadChar) && !musthit) || (CharactersWith3D.contains(PlayState.bfChar) && musthit))
+			|| ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1))
+				&& ((this.strumTime / 50) % 20 > 10)
+				&& !sustainNote))
+		{
+			frames = Paths.getSparrowAtlas('NOTE_assets_3D');
+
+			animation.addByPrefix('greenScroll', 'green0');
+			animation.addByPrefix('redScroll', 'red0');
+			animation.addByPrefix('blueScroll', 'blue0');
+			animation.addByPrefix('purpleScroll', 'purple0');
+
+			animation.addByPrefix('purpleholdend', 'pruple end hold');
+			animation.addByPrefix('greenholdend', 'green hold end');
+			animation.addByPrefix('redholdend', 'red hold end');
+			animation.addByPrefix('blueholdend', 'blue hold end');
+
+			animation.addByPrefix('purplehold', 'purple hold piece');
+			animation.addByPrefix('greenhold', 'green hold piece');
+			animation.addByPrefix('redhold', 'red hold piece');
+			animation.addByPrefix('bluehold', 'blue hold piece');
+
+			is3dNote = true;
+		}
+		else if (PlayState.awesomeChars.contains(PlayState.dadChar) || (PlayState.awesomeChars.contains(PlayState.bfChar) && musthit))
 		{
 			frames = Paths.getSparrowAtlas('awesome_notes');
 
@@ -219,10 +302,10 @@ class Note extends FlxSprite
 			switch (daStage)
 			{
 				default:
-				var dumbasspath:String = 'NOTE_assets';
+					var dumbasspath:String = 'NOTE_assets';
 
-				    switch(noteStyle)
-				    {
+					switch (noteStyle)
+					{
 						case 'phone':
 							dumbasspath = 'NOTE_phone';
 						default:
@@ -247,29 +330,31 @@ class Note extends FlxSprite
 					antialiasing = true;
 			}
 		}
-		if(isRing && noteData == 2 && !sustainNote && musthit)
+		if (isRing && noteData == 2 && !sustainNote && musthit)
 		{
 			animation.destroyAnimations();
 			frames = Paths.getSparrowAtlas('covers/gapple_notes');
 			animation.addByPrefix('appleScroll', 'apple');
 		}
 
-		if (palooseNote) {
+		if (palooseNote)
+		{
 			frames = Paths.getSparrowAtlas('funnyAnimal/palooseNote');
 			animation.addByPrefix('34', '', 12, true);
 			animation.play('34');
 			antialiasing = false;
 		}
-		if (wizNote) {
+		if (wizNote)
+		{
 			frames = Paths.getSparrowAtlas('funnyAnimal/magicNote');
 			animation.addByPrefix('34', '', 12, true);
 			animation.play('34');
 			antialiasing = false;
 		}
 
-		if(palooseNote)
+		if (palooseNote)
 		{
-			switch(noteData)
+			switch (noteData)
 			{
 				case 0:
 					angle = -90;
@@ -281,10 +366,10 @@ class Note extends FlxSprite
 					angle = 0;
 			}
 		}
-		
+
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
-		
+
 		switch (PlayState.SONG.song.toLowerCase())
 		{
 			case 'cheating':
@@ -307,7 +392,7 @@ class Note extends FlxSprite
 						x += swagWidth * 2;
 						animation.play('redScroll');
 				}
-				flipY = (Math.round(Math.random()) == 0); //fuck you
+				flipY = (Math.round(Math.random()) == 0); // fuck you
 				flipX = (Math.round(Math.random()) == 1);
 
 			default:
@@ -348,13 +433,12 @@ class Note extends FlxSprite
 							animation.play('redScroll');
 						}
 					case 4:
-						if(isRing && mustPress)
+						if (isRing && mustPress)
 						{
 							x += swagWidth * 4;
 							notetolookfor = 4;
 							animation.play('redScroll');
 						}
-						
 				}
 		}
 		switch (PlayState.SONG.song.toLowerCase())
@@ -362,7 +446,7 @@ class Note extends FlxSprite
 			case 'cheating' | 'unfairness' | 'applecore' | 'ripple' | 'amongfairness':
 				if (Type.getClassName(Type.getClass(FlxG.state)).contains("PlayState"))
 				{
-					var state:PlayState = cast(FlxG.state,PlayState);
+					var state:PlayState = cast(FlxG.state, PlayState);
 					InPlayState = true;
 					if (musthit)
 					{
@@ -381,33 +465,34 @@ class Note extends FlxSprite
 						{
 							if (spr.ID == notetolookfor)
 							{
-									x = spr.x;
-									MyStrum = spr;
-								}
-							});
+								x = spr.x;
+								MyStrum = spr;
+							}
+						});
 					}
 				}
 		}
-		if (PlayState.SONG.song.toLowerCase() == 'unfairness' || PlayState.SONG.song.toLowerCase() == 'applecore' || PlayState.SONG.song.toLowerCase() == 'amongfairness')
+		if (PlayState.SONG.song.toLowerCase() == 'unfairness'
+			|| PlayState.SONG.song.toLowerCase() == 'applecore'
+			|| PlayState.SONG.song.toLowerCase() == 'amongfairness')
 		{
 			var rng:FlxRandom = new FlxRandom();
-			if (rng.int(0,120) == 1)
+			if (rng.int(0, 120) == 1)
 			{
 				LocalScrollSpeed = 0.1;
 			}
 			else
 			{
-				LocalScrollSpeed = rng.float(1,3);
+				LocalScrollSpeed = rng.float(1, 3);
 			}
 		}
-		
 
 		// trace(prevNote);
 
 		// we make sure its downscroll and its a SUSTAIN NOTE (aka a trail, not a note)
 		// and flip it so it doesn't look weird.
 		// THIS DOESN'T FUCKING FLIP THE NOTE, CONTRIBUTERS DON'T JUST COMMENT THIS OUT JESUS
-		if (FlxG.save.data.downscroll && sustainNote) 
+		if (FlxG.save.data.downscroll && sustainNote)
 			flipY = true;
 
 		if (isSustainNote && prevNote != null)
@@ -416,7 +501,6 @@ class Note extends FlxSprite
 			alpha = 0.6;
 
 			x += width / 2;
-
 
 			switch (noteData)
 			{
@@ -457,12 +541,14 @@ class Note extends FlxSprite
 			}
 		}
 
-		if (skyFNF) {
+		if (skyFNF)
+		{
 			x = 788;
 			x += width * noteData;
 		}
 
-		if (PlayState.SONG.song.toLowerCase() == 'ready-loud') x -= 1280 / 4;
+		if (PlayState.SONG.song.toLowerCase() == 'ready-loud')
+			x -= 1280 / 4;
 	}
 
 	public var isAlt:Bool = false;
@@ -474,37 +560,37 @@ class Note extends FlxSprite
 		if (MyStrum != null && !isAlt)
 		{
 			x = MyStrum.x + (isSustainNote ? width : 0);
-			//angle = MyStrum.angle;
+			// angle = MyStrum.angle;
 		}
 		else
 		{
 			if (InPlayState && !isAlt)
 			{
-				var state:PlayState = cast(FlxG.state,PlayState);
+				var state:PlayState = cast(FlxG.state, PlayState);
 				if (mustPress)
+				{
+					state.playerStrums.forEach(function(spr:FlxSprite)
 					{
-						state.playerStrums.forEach(function(spr:FlxSprite)
+						if (spr.ID == notetolookfor)
 						{
-							if (spr.ID == notetolookfor)
-							{
-								x = spr.x;
-								//angle = spr.angle;
-								MyStrum = spr;
-							}
-						});
-					}
-					else
+							x = spr.x;
+							// angle = spr.angle;
+							MyStrum = spr;
+						}
+					});
+				}
+				else
+				{
+					state.dadStrums.forEach(function(spr:FlxSprite)
 					{
-						state.dadStrums.forEach(function(spr:FlxSprite)
-							{
-								if (spr.ID == notetolookfor)
-								{
-									x = spr.x;
-									//angle = spr.angle;
-									MyStrum = spr;
-								}
-							});
-					}
+						if (spr.ID == notetolookfor)
+						{
+							x = spr.x;
+							// angle = spr.angle;
+							MyStrum = spr;
+						}
+					});
+				}
 			}
 		}
 		if (mustPress)
@@ -531,13 +617,14 @@ class Note extends FlxSprite
 		{
 			if (alpha > 0.3)
 				alpha = 0.3;
-			
 		}
 	}
 
 	public function resetNote()
 	{
-		if (((CharactersWith3D.contains(PlayState.dadChar) && !mustPress) || (CharactersWith3D.contains(PlayState.bfChar) && mustPress)) || ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1)) && ((this.strumTime / 50) % 20 > 10)))
+		if (((CharactersWith3D.contains(PlayState.dadChar) && !mustPress) || (CharactersWith3D.contains(PlayState.bfChar) && mustPress))
+			|| ((CharactersWith3D.contains(PlayState.SONG.player2) || CharactersWith3D.contains(PlayState.SONG.player1))
+				&& ((this.strumTime / 50) % 20 > 10)))
 		{
 			frames = Paths.getSparrowAtlas('NOTE_assets_3D');
 
@@ -563,10 +650,10 @@ class Note extends FlxSprite
 			switch (PlayState.curStage)
 			{
 				default:
-				var dumbasspath:String = 'NOTE_assets';
+					var dumbasspath:String = 'NOTE_assets';
 
-				    switch(fuckerStyle)
-				    {
+					switch (fuckerStyle)
+					{
 						case 'phone':
 							dumbasspath = 'NOTE_phone';
 						default:
@@ -591,7 +678,7 @@ class Note extends FlxSprite
 					antialiasing = true;
 			}
 		}
-		if(isRing && noteData == 2 && !isSustainNote && mustPress)
+		if (isRing && noteData == 2 && !isSustainNote && mustPress)
 		{
 			animation.destroyAnimations();
 			frames = Paths.getSparrowAtlas('covers/gapple_notes');
@@ -599,62 +686,59 @@ class Note extends FlxSprite
 		}
 
 		switch (noteData)
+		{
+			case 0:
+				x += swagWidth * 0;
+				notetolookfor = 0;
+				animation.play('purpleScroll');
+			case 1:
+				x += swagWidth * 1;
+				notetolookfor = 1;
+				animation.play('blueScroll');
+			case 2:
+				if (isRing && mustPress)
 				{
-					case 0:
-						x += swagWidth * 0;
-						notetolookfor = 0;
-						animation.play('purpleScroll');
-					case 1:
-						x += swagWidth * 1;
-						notetolookfor = 1;
-						animation.play('blueScroll');
-					case 2:
-						if (isRing && mustPress)
-						{
-							x += swagWidth * 2;
-							notetolookfor = 2;
-							animation.play('appleScroll');
-						}
-						else
-						{
-							x += swagWidth * 2;
-							notetolookfor = 2;
-							animation.play('greenScroll');
-						}
-					case 3:
-						if (isRing && mustPress)
-						{
-							x += swagWidth * 3;
-							notetolookfor = 3;
-							animation.play('greenScroll');
-						}
-						else
-						{
-							x += swagWidth * 3;
-							notetolookfor = 3;
-							animation.play('redScroll');
-						}
-					case 4:
-						if(isRing && mustPress)
-						{
-							x += swagWidth * 4;
-							notetolookfor = 4;
-							animation.play('redScroll');
-						}
-						
+					x += swagWidth * 2;
+					notetolookfor = 2;
+					animation.play('appleScroll');
 				}
+				else
+				{
+					x += swagWidth * 2;
+					notetolookfor = 2;
+					animation.play('greenScroll');
+				}
+			case 3:
+				if (isRing && mustPress)
+				{
+					x += swagWidth * 3;
+					notetolookfor = 3;
+					animation.play('greenScroll');
+				}
+				else
+				{
+					x += swagWidth * 3;
+					notetolookfor = 3;
+					animation.play('redScroll');
+				}
+			case 4:
+				if (isRing && mustPress)
+				{
+					x += swagWidth * 4;
+					notetolookfor = 4;
+					animation.play('redScroll');
+				}
+		}
 
-		if (FlxG.save.data.downscroll && isSustainNote) 
+		if (FlxG.save.data.downscroll && isSustainNote)
 			flipY = true;
 
-		
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
 
 		if (isSustainNote && prevNote != null)
 		{
 			alpha = 0.6;
-
 
 			switch (noteData)
 			{
@@ -702,7 +786,7 @@ class Note extends FlxSprite
 		animation.destroyAnimations();
 
 		var dumbasspath = 'NOTE_assets';
-		
+
 		frames = Paths.getSparrowAtlas(dumbasspath);
 
 		animation.addByPrefix('greenScroll', 'green0');
@@ -726,7 +810,6 @@ class Note extends FlxSprite
 
 		animation.play(cachedCurrentAnimation, true);
 
-		
 		if (isSustainNote && prevNote != null)
 		{
 			alpha = 0.6;
@@ -742,58 +825,56 @@ class Note extends FlxSprite
 		}
 
 		switch (noteData)
+		{
+			case 0:
+				x += swagWidth * 0;
+				notetolookfor = 0;
+				animation.play('purpleScroll');
+			case 1:
+				x += swagWidth * 1;
+				notetolookfor = 1;
+				animation.play('blueScroll');
+			case 2:
+				if (isRing && mustPress)
 				{
-					case 0:
-						x += swagWidth * 0;
-						notetolookfor = 0;
-						animation.play('purpleScroll');
-					case 1:
-						x += swagWidth * 1;
-						notetolookfor = 1;
-						animation.play('blueScroll');
-					case 2:
-						if (isRing && mustPress)
-						{
-							x += swagWidth * 2;
-							notetolookfor = 2;
-							animation.play('appleScroll');
-						}
-						else
-						{
-							x += swagWidth * 2;
-							notetolookfor = 2;
-							animation.play('greenScroll');
-						}
-					case 3:
-						if (isRing && mustPress)
-						{
-							x += swagWidth * 3;
-							notetolookfor = 3;
-							animation.play('greenScroll');
-						}
-						else
-						{
-							x += swagWidth * 3;
-							notetolookfor = 3;
-							animation.play('redScroll');
-						}
-					case 4:
-						if(isRing && mustPress)
-						{
-							x += swagWidth * 4;
-							notetolookfor = 4;
-							animation.play('redScroll');
-						}
-						
+					x += swagWidth * 2;
+					notetolookfor = 2;
+					animation.play('appleScroll');
 				}
+				else
+				{
+					x += swagWidth * 2;
+					notetolookfor = 2;
+					animation.play('greenScroll');
+				}
+			case 3:
+				if (isRing && mustPress)
+				{
+					x += swagWidth * 3;
+					notetolookfor = 3;
+					animation.play('greenScroll');
+				}
+				else
+				{
+					x += swagWidth * 3;
+					notetolookfor = 3;
+					animation.play('redScroll');
+				}
+			case 4:
+				if (isRing && mustPress)
+				{
+					x += swagWidth * 4;
+					notetolookfor = 4;
+					animation.play('redScroll');
+				}
+		}
 
-		if (FlxG.save.data.downscroll && isSustainNote) 
+		if (FlxG.save.data.downscroll && isSustainNote)
 			flipY = true;
 
 		if (isSustainNote && prevNote != null)
 		{
 			alpha = 0.6;
-
 
 			switch (noteData)
 			{
@@ -829,6 +910,7 @@ class Note extends FlxSprite
 			}
 		}
 	}
+
 	public function makePixel()
 	{
 		is3dNote = false;
@@ -838,7 +920,7 @@ class Note extends FlxSprite
 		var cachedCurrentAnimation = animation.curAnim.name;
 
 		animation.destroyAnimations();
-		
+
 		loadGraphic(Paths.image('pixelUi/pixel_notes'), true, 17, 17);
 
 		animation.add('greenScroll', [6]);
@@ -868,7 +950,6 @@ class Note extends FlxSprite
 
 		animation.play(cachedCurrentAnimation, true);
 
-		
 		if (isSustainNote && prevNote != null)
 		{
 			alpha = 0.6;

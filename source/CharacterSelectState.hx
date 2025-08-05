@@ -1,4 +1,5 @@
 package;
+
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -14,19 +15,17 @@ import flixel.util.FlxStringUtil;
 
 using StringTools;
 
- /**
- hey you fun commiting people, 
- i don't know about the rest of the mod but since this is basically 99% my code 
- i do not give you guys permission to grab this specific code and re-use it in your own mods without asking me first.
- the secondary dev, ben
-*/
-
+/**
+	hey you fun commiting people, 
+	i don't know about the rest of the mod but since this is basically 99% my code 
+	i do not give you guys permission to grab this specific code and re-use it in your own mods without asking me first.
+	the secondary dev, ben
+ */
 /**
 
 	hi
 
 **/
-
 class CharacterInSelect
 {
 	public var names:Array<String>;
@@ -50,7 +49,7 @@ class CharacterSelectState extends MusicBeatState
 
 	var notestuffs:Array<String> = ['LEFT', 'DOWN', 'UP', 'RIGHT'];
 
-	public var isDebug:Bool = false; //CHANGE THIS TO FALSE BEFORE YOU COMMIT RETARDS
+	public var isDebug:Bool = false; // CHANGE THIS TO FALSE BEFORE YOU COMMIT RETARDS
 
 	public var PressedTheFunny:Bool = false;
 
@@ -60,10 +59,8 @@ class CharacterSelectState extends MusicBeatState
 
 	var noteMsTexts:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
-	//it goes left,right,up,down
-	
-	public var characters:Array<CharacterInSelect> = 
-	[
+	// it goes left,right,up,down
+	public var characters:Array<CharacterInSelect> = [
 		new CharacterInSelect(['bf', 'bf-pixel', '3d-bf'], ["Boyfriend", 'Pixel Boyfriend', '3D Boyfriend']),
 		new CharacterInSelect(['froing'], ['Boing Froing']),
 		new CharacterInSelect(['epic'], ['Biggity Dawg']),
@@ -74,7 +71,15 @@ class CharacterSelectState extends MusicBeatState
 		new CharacterInSelect(['da-apprentice', '3d-tristan'], ['Tristan', '3D Tristan']),
 		new CharacterInSelect(['bambi-piss-3d', 'bamb-root'], ['Angry 3D Bambi', 'Cuberoot Bambi']),
 		new CharacterInSelect(['unfair-junker'], ['Expunged (Applecore, Facing Forward)']),
-		new CharacterInSelect(['bandu', 'badai', 'bandu-candy', 'bandu-card', 'bandu-origin', 'bandu-lullaby'], ['Bandu', 'Badai', 'Bandu (Sugar Rush)', 'Bandu (Gift Card)', 'Bandu (Origin)', 'Bandu (Lullaby)']),
+		new CharacterInSelect(['bandu', 'badai', 'bandu-candy', 'bandu-card', 'bandu-origin', 'bandu-lullaby'],
+			[
+				'Bandu',
+				'Badai',
+				'Bandu (Sugar Rush)',
+				'Bandu (Gift Card)',
+				'Bandu (Origin)',
+				'Bandu (Lullaby)'
+			]),
 		new CharacterInSelect(['garrett'], ["Garrett"]),
 		new CharacterInSelect(['hall-monitor'], ["Hall Monitor"]),
 		new CharacterInSelect(['diamond-man', 'too-shiny', 'diamond-man-mugen'], ["Diamond Man", "Diamond Man (Too Shiny)", 'Diamond Man (Collision)']),
@@ -93,34 +98,35 @@ class CharacterSelectState extends MusicBeatState
 		new CharacterInSelect(['dale'], ["Dale"]),
 		new CharacterInSelect(['dambu'], ["Dambu"]),
 		new CharacterInSelect(['dambai'], ["Dambai"]),
-		//new CharacterInSelect(['sart-producer', 'sart-producer-night'], ["Sart Producer", "Sart Producer (Night)"]),
+		// new CharacterInSelect(['sart-producer', 'sart-producer-night'], ["Sart Producer", "Sart Producer (Night)"]),
 		new CharacterInSelect(['ringi'], ["Ringi"]),
 		new CharacterInSelect(['bambom'], ["Bambom"]),
 		new CharacterInSelect(['bendu'], ["Bendu"]),
-		//new CharacterInSelect(['swanki'], ["Swanki"]),
+		// new CharacterInSelect(['swanki'], ["Swanki"]),
 		new CharacterInSelect(['blogblez'], ["Blogblez"]),
-		new CharacterInSelect(['dave-wheels'/*, 'wtf-lmao'*/], ["Dave but Awesome"/*, "Dave but Awesome (3D)"*/]),
-		//new CharacterInSelect(['bormp', 'cock-cream'], ["Bambi but Awesome", "Bambi but Awesome (3D)"]),
+		new CharacterInSelect(['dave-wheels' /*, 'wtf-lmao'*/], ["Dave but Awesome" /*, "Dave but Awesome (3D)"*/]),
+		// new CharacterInSelect(['bormp', 'cock-cream'], ["Bambi but Awesome", "Bambi but Awesome (3D)"]),
 		new CharacterInSelect(['awesome-son'], ["Dave's Awesome Son"]),
 		new CharacterInSelect(['prealpha'], ["Prealpha Dave"]),
 		new CharacterInSelect(['roblos'], ["Roblox Dave"]),
 		new CharacterInSelect(['super'], ["Nupersovae Bambi"]),
 	];
-	public function new() 
+
+	public function new()
 	{
 		super();
 	}
-	
-	override public function create():Void 
+
+	override public function create():Void
 	{
 		super.create();
 		Conductor.changeBPM(100);
 
 		currentSelectedCharacter = characters[current];
 
-		FlxG.sound.playMusic(Paths.music("character_select"),1,true);
-		
-		//create stage
+		FlxG.sound.playMusic(Paths.music("character_select"), 1, true);
+
+		// create stage
 		var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
 		bg.antialiasing = true;
 		bg.scrollFactor.set(0.9, 0.9);
@@ -145,11 +151,11 @@ class CharacterSelectState extends MusicBeatState
 
 		FlxG.camera.zoom = 0.75;
 
-		//create character
+		// create character
 		char = new Boyfriend(FlxG.width / 2, FlxG.height / 2, "bf");
 		char.screenCenter();
 		add(char);
-		
+
 		characterText = new FlxText((FlxG.width / 9) - 50, (FlxG.height / 8) - 225, "Boyfriend");
 		characterText.font = 'Comic Sans MS Bold';
 		characterText.setFormat(Paths.font("comic.ttf"), 90, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -171,21 +177,21 @@ class CharacterSelectState extends MusicBeatState
 		add(tutorialThing);
 	}
 
-	override public function update(elapsed:Float):Void 
+	override public function update(elapsed:Float):Void
 	{
 		Conductor.songPosition = FlxG.sound.music.time;
 
 		super.update(elapsed);
-		//FlxG.camera.focusOn(FlxG.ce);
+		// FlxG.camera.focusOn(FlxG.ce);
 
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			LoadingState.loadAndSwitchState(new PlayMenuState());
 		}
 
-		if(controls.LEFT_P && !PressedTheFunny)
+		if (controls.LEFT_P && !PressedTheFunny)
 		{
-			if(!char.nativelyPlayable)
+			if (!char.nativelyPlayable)
 			{
 				char.playAnim('singRIGHT', true);
 			}
@@ -193,11 +199,10 @@ class CharacterSelectState extends MusicBeatState
 			{
 				char.playAnim('singLEFT', true);
 			}
-
 		}
-		if(controls.RIGHT_P && !PressedTheFunny)
+		if (controls.RIGHT_P && !PressedTheFunny)
 		{
-			if(!char.nativelyPlayable)
+			if (!char.nativelyPlayable)
 			{
 				char.playAnim('singLEFT', true);
 			}
@@ -206,16 +211,16 @@ class CharacterSelectState extends MusicBeatState
 				char.playAnim('singRIGHT', true);
 			}
 		}
-		if(controls.UP_P && !PressedTheFunny)
+		if (controls.UP_P && !PressedTheFunny)
 		{
 			char.playAnim('singUP', true);
 		}
-		if(controls.DOWN_P && !PressedTheFunny)
+		if (controls.DOWN_P && !PressedTheFunny)
 		{
 			char.playAnim('singDOWN', true);
 		}
-		
-		if(char.animation.curAnim.name.contains('idle') || char.animation.curAnim.name.contains('dance'))
+
+		if (char.animation.curAnim.name.contains('idle') || char.animation.curAnim.name.contains('dance'))
 		{
 			fuckyWucky = true;
 		}
@@ -223,10 +228,10 @@ class CharacterSelectState extends MusicBeatState
 		{
 			fuckyWucky = char.animation.finished;
 		}
-		
+
 		if (controls.ACCEPT || FlxG.keys.justPressed.ENTER)
 		{
-			if(!SaveFileState.saveFile.data.charUnlock.get(char.curCharacter, false))
+			if (!SaveFileState.saveFile.data.charUnlock.get(char.curCharacter, false))
 			{
 				return;
 			}
@@ -239,15 +244,15 @@ class CharacterSelectState extends MusicBeatState
 				PressedTheFunny = true;
 			}
 			selectedCharacter = true;
-			if(char.animation.getByName("hey") != null)
+			if (char.animation.getByName("hey") != null)
 			{
 				char.playAnim('hey', true);
 			}
-			else if(char.animation.getByName("cheer") != null)
+			else if (char.animation.getByName("cheer") != null)
 			{
 				char.playAnim('cheer', true);
 			}
-			else if(char.animation.getByName("stand") != null)
+			else if (char.animation.getByName("stand") != null)
 			{
 				char.playAnim('stand', true);
 			}
@@ -315,7 +320,7 @@ class CharacterSelectState extends MusicBeatState
 		char.screenCenter();
 		char.y = 450;
 
-		if(!SaveFileState.saveFile.data.charUnlock.get(char.curCharacter, false))
+		if (!SaveFileState.saveFile.data.charUnlock.get(char.curCharacter, false))
 		{
 			characterText.text = 'Locked Character';
 			char.color = FlxColor.BLACK;
@@ -338,8 +343,7 @@ class CharacterSelectState extends MusicBeatState
 			char.dance();
 		}
 	}
-	
-	
+
 	public function endIt(e:FlxTimer = null)
 	{
 		trace("ENDING");
@@ -348,5 +352,4 @@ class CharacterSelectState extends MusicBeatState
 		PlayState.curmult = [1, 1, 1, 1];
 		LoadingState.loadAndSwitchState(new LoadingScreenState());
 	}
-	
 }

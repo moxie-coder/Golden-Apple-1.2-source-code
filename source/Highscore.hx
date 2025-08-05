@@ -9,9 +9,8 @@ class Highscore
 	public static var songChars:Map<String, String> = new Map();
 	#else
 	public static var songScores:Map<String, Int> = new Map<String, Int>();
-	public static var songChars:Map<String, String> = new Map<String,String>();
+	public static var songChars:Map<String, String> = new Map<String, String>();
 	#end
-
 
 	public static function saveScore(song:String, score:Int = 0, ?diff:Int = 0, ?char:String = "bf"):Void
 	{
@@ -19,32 +18,32 @@ class Highscore
 		trace("saveScore" + daSong);
 
 		if (songScores.exists(daSong))
+		{
+			if (songScores.get(daSong) < score)
 			{
-				if (songScores.get(daSong) < score)
-				{
-					setScore(daSong, score,char);
-				}
+				setScore(daSong, score, char);
 			}
-			else
-			{
-				setScore(daSong, score,char);
-			}
+		}
+		else
+		{
+			setScore(daSong, score, char);
+		}
 	}
 
 	public static function saveWeekScore(week:Int = 1, score:Int = 0, ?diff:Int = 0, ?char:String = "bf"):Void
 	{
 		var daWeek:String = formatSong('week' + week, diff);
-	
+
 		if (songScores.exists(daWeek))
 		{
 			if (songScores.get(daWeek) < score)
 			{
-				setScore(daWeek, score,char);
+				setScore(daWeek, score, char);
 			}
 		}
 		else
 		{
-			setScore(daWeek, score,char);
+			setScore(daWeek, score, char);
 		}
 	}
 
@@ -56,7 +55,7 @@ class Highscore
 		trace("setscore " + song);
 		// Reminder that I don't need to format this song, it should come formatted!
 		songScores.set(song, score);
-		songChars.set(song,char);
+		songChars.set(song, char);
 		SaveFileState.saveFile.data.songScores = songScores;
 		SaveFileState.saveFile.data.songNames = songChars;
 		SaveFileState.saveFile.flush();
@@ -65,7 +64,7 @@ class Highscore
 	static function setChar(song:String, char:String):Void
 	{
 		trace("setchar " + song + ":" + char);
-		songChars.set(song,char);
+		songChars.set(song, char);
 		SaveFileState.saveFile.data.songNames = songChars;
 		SaveFileState.saveFile.flush();
 	}
@@ -99,7 +98,7 @@ class Highscore
 			return "ERROR";
 		if (!songChars.exists(formatSong(song, diff)))
 		{
-			setChar(formatSong(song, diff),"bf");
+			setChar(formatSong(song, diff), "bf");
 			return "bf";
 		}
 		return songChars.get(formatSong(song, diff));
@@ -118,7 +117,7 @@ class Highscore
 	{
 		if (!songScores.exists(formatSong('week' + week, diff)))
 		{
-			setChar(formatSong('week' + week, diff),"bf");
+			setChar(formatSong('week' + week, diff), "bf");
 			return "bf";
 		}
 		return songChars.get(formatSong('week' + week, diff));
