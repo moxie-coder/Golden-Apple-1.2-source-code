@@ -2,6 +2,10 @@
 ## Powered by a heavily modified version of Kade Engine!
 ![KadeEngineLogo](https://user-images.githubusercontent.com/26305836/110529589-4b4eb600-80ce-11eb-9c44-e899118b0bf0.png)
 
+### Note
+This is the dev branch, this is meant as an way to attempt to improve the code, fix any bugs and such. Any PRs that make changes should go here.
+*No* this won't have any 2.0 content unless stated otherwise.
+
 ## DISCLAIMER
 I do not own the code, all rights go to Sky/Grantare! and the rest of the Golden Apple team!
 
