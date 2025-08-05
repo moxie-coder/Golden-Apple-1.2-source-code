@@ -1,6 +1,5 @@
 package;
 
-import animateatlas.AtlasFrameMaker;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -275,62 +274,6 @@ class Character extends FlxSprite
 				antialiasing = false;
 
 				iconRPC = 'icon_awesome_son';
-			case 'elf':
-				// GARRETT SHITE ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('characters/elf');
-				frames = tex;
-				animation.addByPrefix('idle', 'IDLE'.toLowerCase(), 24, false);
-				animation.addByPrefix('singUP', 'UP'.toLowerCase(), 24, false);
-				animation.addByPrefix('singRIGHT', 'RIGHT'.toLowerCase(), 24, false);
-				animation.addByPrefix('singDOWN', 'DOWN'.toLowerCase(), 24, false);
-				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
-		
-				addOffset('idle');
-				addOffset("singUP");
-				addOffset("singRIGHT");
-				addOffset("singLEFT");
-				addOffset("singDOWN");
-
-				antialiasing = false;
-		
-				playAnim('idle');
-
-				iconName = 'penis';
-
-				iconRPC = 'icon_penis';
-			case 'jambi':
-				frames = Paths.getSparrowAtlas('characters/jambinew');
-				/*animation.addByIndices('danceLeft', 'jambiidle', [5, 4, 3, 2, 1, 0], '', 24, false);
-				animation.addByIndices('danceRight', 'jambiidle', )*/
-				addAnim('idle', 'jambiidle');
-				addAnim('singLEFT', 'electleft');
-				addAnim('singDOWN', 'downelectric');
-				addAnim('singUP', 'upelect');
-				addAnim('singRIGHT', 'rightrelelctric');
-				addAnim('singLEFT-alt', 'shockleft');
-				addAnim('singUP-alt', 'upalt');
-				addAnim('singDOWN-alt', 'shockdown');
-				addAnim('singRIGHT-alt', 'shockright');
-
-				addOffset('idle');
-				addOffset('singLEFT', 370, -20);
-				addOffset('singDOWN', -10, -220);
-				addOffset('singUP', 0, 180);
-				addOffset('singRIGHT', -180);
-
-				addOffset('singLEFT-alt', 690, 10);
-				addOffset('singDOWN-alt', -70, -190);
-				addOffset('singUP-alt', 40, 410);
-				addOffset('singRIGHT-alt', -280, 140);
-
-				//playAnim('danceRight');
-				playAnim('idle');
-
-				antialiasing = false;
-
-				iconName = 'jambi';
-
-				iconRPC = 'icon_jambi';
 			case 'do-you-accept-player':
 				tex = Paths.getSparrowAtlas('funnyAnimal/do_you_accept');
 				frames = tex;
@@ -1327,55 +1270,6 @@ class Character extends FlxSprite
 				iconRPC = 'icon_doll';
 
 				playAnim('idle');
-			case 'sart-producer-night':
-				frames = Paths.getSparrowAtlas('characters/sart_producer_night');
-				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
-					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
-				}
-				animation.addByPrefix('hey', 'deez', 24, false);
-
-				addOffset('idle');
-				addOffset('singLEFT');
-				addOffset('singDOWN');
-				addOffset('singUP');
-				addOffset('singRIGHT', -789);
-				addOffset('hey');
-
-				nativelyPlayable = flipX = true;
-
-				setGraphicSize(811);
-				updateHitbox();
-
-				antialiasing = false;
-
-				playAnim('idle');
-
-				iconName = 'sart-producer';
-
-				iconRPC = 'icon_sart';
-			case 'sart-producer':
-				frames = Paths.getSparrowAtlas('characters/sart-producer');
-				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
-					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
-				}
-				animation.addByPrefix('hey', 'deez', 24, false);
-
-				addOffset('idle');
-				addOffset('singLEFT');
-				addOffset('singDOWN');
-				addOffset('singUP');
-				addOffset('singRIGHT');
-				addOffset('hey');
-
-				antialiasing = false;
-
-				playAnim('idle');
-
-				iconName = 'sart-producer';
-
-				iconRPC = 'icon_sart';
 			case 'playrobot':
 				frames = Paths.getSparrowAtlas('characters/playrobot');
 
@@ -1778,27 +1672,6 @@ class Character extends FlxSprite
 				iconName = 'ringi';
 
 				iconRPC = 'icon_ringi';
-			case 'ripple':
-				frames = Paths.getSparrowAtlas('characters/ripple_dude');
-				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
-					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
-				}
-
-				addOffset('idle');
-				addOffset('singLEFT');
-				addOffset('singDOWN');
-				addOffset('singUP');
-				addOffset('singRIGHT');
-
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
-				updateHitbox();
-
-				antialiasing = false;
-
-				playAnim('idle');
-
-				iconName = 'rippler';
 			case 'bambom':
 				frames = Paths.getSparrowAtlas('characters/bambom');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
@@ -2100,30 +1973,6 @@ class Character extends FlxSprite
 				iconName = 'dale';
 
 				iconRPC = 'icon_dale';
-
-			case 'irreversible_action':
-				tex = Paths.getSparrowAtlas('characters/irreversible_action');
-				frames = tex;
-				animation.addByPrefix('idle', 'IDLE', 24, false);
-				animation.addByPrefix('singUP', 'UP', 24, false);
-				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
-				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
-				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
-				addOffset('idle');
-				addOffset("singUP", 30);
-				addOffset("singRIGHT", 140, 393);
-				addOffset("singLEFT");
-				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
-				updateHitbox();
-				antialiasing = false;
-		
-				playAnim('idle');
-
-				iconName = 'action';
-
-				iconRPC = 'icon_action';
 
 			case 'dingle':
 				tex = Paths.getSparrowAtlas('characters/dingle');
@@ -3105,31 +2954,6 @@ class Character extends FlxSprite
 
 			case 'tunnel-bf':
 				var tex = Paths.getSparrowAtlas('characters/tunnel_bf');
-				frames = tex;
-
-				animation.addByPrefix('idle', 'IDLE', 24, false);
-				animation.addByPrefix('singUP', 'UP', 24, false);
-				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
-				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
-				animation.addByPrefix('turn', 'TURN', 24, false);
-
-				addOffset('idle');
-				addOffset("singUP");
-				addOffset("singRIGHT");
-				addOffset("singLEFT", 57);
-				addOffset("singDOWN");
-				addOffset('turn');
-
-				playAnim('idle');
-
-				flipX = true;
-
-				nativelyPlayable = true;
-
-				iconName = 'bf';
-			case 'tunnel-bf-atlas':
-				var tex = AtlasFrameMaker.construct('assets/images/characters/atlas_test');
 				frames = tex;
 
 				animation.addByPrefix('idle', 'IDLE', 24, false);

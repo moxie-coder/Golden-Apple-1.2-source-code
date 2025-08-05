@@ -104,7 +104,6 @@ class StolenFromTrickyMod
     public function loadFrames()
     {
         sys.thread.Thread.create(() -> {
-            toBeLoaded.set('bandusad','characters/bandu_sad');
             // all the big sprites
             var numba = 0;
             for(i in toBeLoaded.keys())

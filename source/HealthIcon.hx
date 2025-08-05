@@ -54,7 +54,6 @@ class HealthIcon extends FlxSprite
 		'future',
 		'smartass',
 		'doll',
-		'rippler',
 		'testicles',
 		'gunk',
 		'gross',

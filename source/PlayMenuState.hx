@@ -14,7 +14,6 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import io.newgrounds.NG;
 import lime.app.Application;
 #if desktop
 import Discord.DiscordClient;
@@ -116,7 +115,7 @@ class PlayMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		FlxG.camera.follow(camFollow, null, 0.06);
+		FlxG.camera.follow(camFollow, null, 0.32);
 		
 		camFollow.setPosition(640, 150.5);
 		for (i in 0...optionShit.length)

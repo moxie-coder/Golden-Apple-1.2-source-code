@@ -56,7 +56,7 @@ class Note extends FlxSprite
 
 	var fuckerStyle:String = 'normal';
 
-	public static var CharactersWith3D:Array<String> = ['bambi-unfair', 'bambi-piss-3d', 'bandu', 'tunnel-dave', 'badai', 'unfair-junker', 'og-dave', 'split-dave-3d', 'garrett', 'og-dave-angey', '3d-bf', 'bandu-candy', 'bandu-scaredy', 'sart-producer', 'ringi', 'bambom', 'bendu', 'diamond-man', 'sart-producer-night', 'bandu-origin', 'RECOVERED_PROJECT', 'RECOVERED_PROJECT_2', 'RECOVERED_PROJECT_3', 'hall-monitor', 'playrobot', 'playrobot-crazy', 'gary', 'ripple', 'david', 'brob', 'butch', 'bad', 'irreversible_action', 'eww-bf', 'dingle', 'froing', 'doll', 'dale', 'robot-guy', 'batai', 'boxer', 'gotta-sleep', 'garrett-animal', 'playtime-2', 'wizard', 'do-you-accept', 'garrett-piss', 'car', 'do-you-accept-player', 'mr-music', 'paloose-men', 'diamond-man-mugen', 'insanidave', 'alge', 'butch', 'bad', 'hover-dude', 'bamb-root', 'shoulder-3d-bf', 'bandu-lullaby', 'dave-unchecked', 'bandu-card', 'cell', 'corrupt-file', 'cell-mad', 'ticking', 'among', 'swanki', 'badrum', 'cock-cream', 'wtf-lmao', '3d-tristan', 'dambu', 'dambai', 'facecam', 'blogblez', 'too-shiny'];
+    public static var CharactersWith3D:Array<String> = ['bambi-unfair', 'bambi-piss-3d', 'bandu', 'tunnel-dave', 'badai', 'unfair-junker', 'og-dave', 'split-dave-3d', 'garrett', 'og-dave-angey', '3d-bf', 'bandu-candy', 'bandu-scaredy', 'sart-producer', 'ringi', 'bambom', 'bendu', 'diamond-man', 'sart-producer-night', 'bandu-origin', 'RECOVERED_PROJECT', 'RECOVERED_PROJECT_2', 'RECOVERED_PROJECT_3', 'hall-monitor', 'playrobot', 'playrobot-crazy', 'gary', 'david', 'brob', 'butch', 'bad', 'eww-bf', 'dingle', 'froing', 'doll', 'dale', 'robot-guy', 'batai', 'boxer', 'gotta-sleep', 'garrett-animal', 'playtime-2', 'wizard', 'do-you-accept', 'garrett-piss', 'car', 'do-you-accept-player', 'mr-music', 'paloose-men', 'diamond-man-mugen', 'insanidave', 'alge', 'butch', 'bad', 'hover-dude', 'bamb-root', 'shoulder-3d-bf', 'bandu-lullaby', 'dave-unchecked', 'bandu-card', 'cell', 'corrupt-file', 'cell-mad', 'ticking', 'among', 'swanki', 'badrum', 'cock-cream', 'wtf-lmao', '3d-tristan', 'dambu', 'dambai', 'facecam', 'blogblez', 'too-shiny'];
 
 	public var rating:String = "shit";
 
@@ -287,7 +287,7 @@ class Note extends FlxSprite
 		
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'cheating' | 'ripple' | 'grantare-sings-cheating':
+			case 'cheating':
 				switch (noteData)
 				{
 					case 0:
@@ -359,7 +359,7 @@ class Note extends FlxSprite
 		}
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'cheating' | 'unfairness' | 'applecore' | 'ripple' | 'amongfairness' | 'grantare-sings-cheating' | 'grantare-sings-unfairness':
+			case 'cheating' | 'unfairness' | 'applecore' | 'ripple' | 'amongfairness':
 				if (Type.getClassName(Type.getClass(FlxG.state)).contains("PlayState"))
 				{
 					var state:PlayState = cast(FlxG.state,PlayState);
@@ -388,7 +388,7 @@ class Note extends FlxSprite
 					}
 				}
 		}
-		if (PlayState.SONG.song.toLowerCase() == 'unfairness' || PlayState.SONG.song.toLowerCase() == 'applecore' || PlayState.SONG.song.toLowerCase() == 'grantare-sings-unfairness' || PlayState.SONG.song.toLowerCase() == 'amongfairness')
+		if (PlayState.SONG.song.toLowerCase() == 'unfairness' || PlayState.SONG.song.toLowerCase() == 'applecore' || PlayState.SONG.song.toLowerCase() == 'amongfairness')
 		{
 			var rng:FlxRandom = new FlxRandom();
 			if (rng.int(0,120) == 1)

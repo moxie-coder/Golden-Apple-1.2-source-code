@@ -20,7 +20,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
 #if desktop
@@ -39,7 +38,7 @@ class PreloadState extends MusicBeatState
     var hasSuckedMyCock:Bool = false;
 
     //I'd say any song around 4:00+ that ISNT base64 hardcoded goes here.
-    public static var preloadSongs:Array<String> = ['Algebra', 'AppleCore', 'Deformation', 'Triple-Trouble', 'IRREVERSIBLE-ACTION', 'RECOVERED-PROJECT', 'Ripple', 'MINUS-RECOVERED-PROJECT'];
+    public static var preloadSongs:Array<String> = ['Algebra', 'AppleCore', 'Deformation', 'Ferocious', 'RECOVERED-PROJECT'];
 
     //put any char you add here
     var preloadChars:Array<String> = ['bf', 'gf', 'robot-guy', 'epic', 'unfair-junker', 'bandu', 'bandu-candy', 'bandu-origin', 'boxer', 'garrett', 'og-dave', 'og-dave-angey', 'playrobot', 'hall-monitor', 'tunnel-dave', 'badai', 'batai', 'RECOVERED_PROJECT', 'RECOVERED_PROJECT_2', 'RECOVERED_PROJECT_3', 'irreversible_action', 'butch', 'bad', 'alge', 'dale', 'gary', 'jeff', 'bambom', 'ringi', 'bendu', 'super', 'ripple', 'bambi-piss-3d', 'dave-good', 'bambi-good', 'tunnel-bf', 'gf-only', '3d-bf', 'eww-bf', 'scaredy-bandu', 'doll', 'doll-alt', 'sart-producer', 'sart-producer-night', 'playrobot-crazy', 'diamond-man', 'dave-wheels', 'david', 'faty', 'gf-wheels', 'ohungi', 'dave-png', 'brob', 'barbu', 'split-dave-3d', 'bf-pixel', 'gf-pixel', 'gf-pixel-only'];
