@@ -284,7 +284,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT'.toLowerCase(), 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN'.toLowerCase(), 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT'.toLowerCase(), 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP");
 				addOffset("singRIGHT");
@@ -292,7 +292,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN");
 
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'penis';
@@ -301,7 +301,7 @@ class Character extends FlxSprite
 			case 'jambi':
 				frames = Paths.getSparrowAtlas('characters/jambinew');
 				/*animation.addByIndices('danceLeft', 'jambiidle', [5, 4, 3, 2, 1, 0], '', 24, false);
-				animation.addByIndices('danceRight', 'jambiidle', )*/
+					animation.addByIndices('danceRight', 'jambiidle', ) */
 				addAnim('idle', 'jambiidle');
 				addAnim('singLEFT', 'electleft');
 				addAnim('singDOWN', 'downelectric');
@@ -323,7 +323,7 @@ class Character extends FlxSprite
 				addOffset('singUP-alt', 40, 410);
 				addOffset('singRIGHT-alt', -280, 140);
 
-				//playAnim('danceRight');
+				// playAnim('danceRight');
 				playAnim('idle');
 
 				antialiasing = false;
@@ -1337,7 +1337,8 @@ class Character extends FlxSprite
 			case 'sart-producer-night':
 				frames = Paths.getSparrowAtlas('characters/sart_producer_night');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 				animation.addByPrefix('hey', 'deez', 24, false);
@@ -1364,7 +1365,8 @@ class Character extends FlxSprite
 			case 'sart-producer':
 				frames = Paths.getSparrowAtlas('characters/sart-producer');
 				animation.addByPrefix('idle', 'idle', 24, false);
-				for (anim in ['left', 'down', 'up', 'right']) {
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 				animation.addByPrefix('hey', 'deez', 24, false);
@@ -1800,7 +1802,8 @@ class Character extends FlxSprite
 			case 'ripple':
 				frames = Paths.getSparrowAtlas('characters/ripple_dude');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
-				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT']) {
+				for (anim in ['LEFT', 'DOWN', 'UP', 'RIGHT'])
+				{
 					animation.addByPrefix('sing${anim.toUpperCase()}', anim, 24, false);
 				}
 
@@ -1810,7 +1813,7 @@ class Character extends FlxSprite
 				addOffset('singUP');
 				addOffset('singRIGHT');
 
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 
 				antialiasing = false;
@@ -2134,16 +2137,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'RIGHT', 24, false);
 				animation.addByPrefix('singDOWN', 'DOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT', 24, false);
-		
+
 				addOffset('idle');
 				addOffset("singUP", 30);
 				addOffset("singRIGHT", 140, 393);
 				addOffset("singLEFT");
 				addOffset("singDOWN");
-				setGraphicSize(Std.int(width * furiosityScale),Std.int(height * furiosityScale));
+				setGraphicSize(Std.int(width * furiosityScale), Std.int(height * furiosityScale));
 				updateHitbox();
 				antialiasing = false;
-		
+
 				playAnim('idle');
 
 				iconName = 'action';

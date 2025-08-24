@@ -230,7 +230,15 @@ class ExtraSongState extends MusicBeatState
 
 	public function checkSongUnlock(song:String)
 	{
-		if ((song.toLowerCase() == 'dave-x-bambi-shipping-cute' && !SaveFileState.saveFile.data.shipUnlocked) || (song.toLowerCase() == 'recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject) || (song.toLowerCase() == 'minus-recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject) || (song.toLowerCase() == 'corrupted-file' && !SaveFileState.saveFile.data.foundCorrupt) || (song.toLowerCase() == 'irreversible-action' && !SaveFileState.saveFile.data.foundAction) || (song.toLowerCase() == 'ripple' && !SaveFileState.saveFile.data.foundRipple) || (song.toLowerCase() == 'ticking' && !SaveFileState.saveFile.data.foundTicking) || (song.toLowerCase() == 'penis' && !SaveFileState.saveFile.data.elfDiscovered) || (song.toLowerCase() == 'cell' && !SaveFileState.saveFile.data.foundCell))
+		if ((song.toLowerCase() == 'dave-x-bambi-shipping-cute' && !SaveFileState.saveFile.data.shipUnlocked)
+			|| (song.toLowerCase() == 'recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject)
+			|| (song.toLowerCase() == 'minus-recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject)
+			|| (song.toLowerCase() == 'corrupted-file' && !SaveFileState.saveFile.data.foundCorrupt)
+			|| (song.toLowerCase() == 'irreversible-action' && !SaveFileState.saveFile.data.foundAction)
+			|| (song.toLowerCase() == 'ripple' && !SaveFileState.saveFile.data.foundRipple)
+			|| (song.toLowerCase() == 'ticking' && !SaveFileState.saveFile.data.foundTicking)
+			|| (song.toLowerCase() == 'penis' && !SaveFileState.saveFile.data.elfDiscovered)
+			|| (song.toLowerCase() == 'cell' && !SaveFileState.saveFile.data.foundCell))
 		{
 			return false;
 		}
@@ -315,8 +323,15 @@ class ExtraSongState extends MusicBeatState
 
 					PlayState.deathCounter = 0;
 
-                    PlayState.storyWeek = songs[curSelected].week;
-					if(songs[curSelected].songName.toLowerCase() == 'midnight' || songs[curSelected].songName.toLowerCase() == 'ready-loud' || songs[curSelected].songName.toLowerCase() == 'irreversible-action' || songs[curSelected].songName.toLowerCase() == 'cuberoot' || songs[curSelected].songName.toLowerCase() == 'dave-x-bambi-shipping-cute' || songs[curSelected].songName.toLowerCase() == 'cheating-not-cute' || songs[curSelected].songName.toLowerCase() == 'left-unchecked' || songs[curSelected].songName.toLowerCase() == 'collision')
+					PlayState.storyWeek = songs[curSelected].week;
+					if (songs[curSelected].songName.toLowerCase() == 'midnight'
+						|| songs[curSelected].songName.toLowerCase() == 'ready-loud'
+						|| songs[curSelected].songName.toLowerCase() == 'irreversible-action'
+						|| songs[curSelected].songName.toLowerCase() == 'cuberoot'
+						|| songs[curSelected].songName.toLowerCase() == 'dave-x-bambi-shipping-cute'
+						|| songs[curSelected].songName.toLowerCase() == 'cheating-not-cute'
+						|| songs[curSelected].songName.toLowerCase() == 'left-unchecked'
+						|| songs[curSelected].songName.toLowerCase() == 'collision')
 					{
 						LoadingState.loadAndSwitchState(new PlayState());
 					}
