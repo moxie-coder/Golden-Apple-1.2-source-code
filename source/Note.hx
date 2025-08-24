@@ -372,7 +372,7 @@ class Note extends FlxSprite
 
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'cheating':
+			case 'cheating' | 'ripple' | 'grantare-sings-cheating':
 				switch (noteData)
 				{
 					case 0:
@@ -443,7 +443,7 @@ class Note extends FlxSprite
 		}
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'cheating' | 'unfairness' | 'applecore' | 'ripple' | 'amongfairness':
+			case 'cheating' | 'unfairness' | 'applecore' | 'ripple' | 'amongfairness' | 'grantare-sings-cheating' | 'grantare-sings-unfairness':
 				if (Type.getClassName(Type.getClass(FlxG.state)).contains("PlayState"))
 				{
 					var state:PlayState = cast(FlxG.state, PlayState);
@@ -472,9 +472,7 @@ class Note extends FlxSprite
 					}
 				}
 		}
-		if (PlayState.SONG.song.toLowerCase() == 'unfairness'
-			|| PlayState.SONG.song.toLowerCase() == 'applecore'
-			|| PlayState.SONG.song.toLowerCase() == 'amongfairness')
+		if (PlayState.SONG.song.toLowerCase() == 'unfairness' || PlayState.SONG.song.toLowerCase() == 'applecore' || PlayState.SONG.song.toLowerCase() == 'grantare-sings-unfairness' || PlayState.SONG.song.toLowerCase() == 'amongfairness')
 		{
 			var rng:FlxRandom = new FlxRandom();
 			if (rng.int(0, 120) == 1)

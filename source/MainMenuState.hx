@@ -13,6 +13,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import io.newgrounds.NG;
 import lime.app.Application;
 #if desktop
 import Discord.DiscordClient;
@@ -271,7 +272,7 @@ class MainMenuState extends MusicBeatState
 					}
 					else
 					{
-						FlxFlicker.flicker(spr, 1, 0.32, false, false, function(flick:FlxFlicker)
+						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 						{
 							var daChoice:String = optionShit[curSelected];
 							switch (daChoice)
